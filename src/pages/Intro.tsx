@@ -1,10 +1,9 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useMobile from '../hooks/use-mobile';
 
 const Intro: FC = () => {
   const navigate = useNavigate();
-  const isMobile = useMobile();
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     // 3초 후 start 페이지로 이동
@@ -12,17 +11,44 @@ const Intro: FC = () => {
     return () => clearTimeout(timer);
   }, [navigate]);
 
+  useEffect(() => {
+    const updateScale = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      
+      if (viewportWidth <= 375) {
+        // 375px 이하일 때는 스케일 1
+        setScale(1);
+      } else {
+        // 375px 이상일 때는 비율에 맞춰 확대
+        const scaleByWidth = viewportWidth / 375;
+        const scaleByHeight = viewportHeight / 812;
+        // 둘 중 작은 값을 사용하여 화면을 벗어나지 않도록
+        setScale(Math.min(scaleByWidth, scaleByHeight));
+      }
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
   return (
     <div 
-      className="intro relative overflow-hidden flex items-center justify-center"
+      className="intro w-full h-screen flex items-center justify-center overflow-hidden"
       style={{
-        width: isMobile ? '100%' : '375px',
-        height: '812px',
-        margin: '0 auto',
         background: 'linear-gradient(0deg, rgba(1, 13, 37, 1) 0%, rgba(1, 13, 37, 1) 100%), linear-gradient(180deg, rgba(16, 50, 113, 1) 0%, rgba(19, 65, 142, 1) 51%, rgba(102, 143, 207, 1) 100%)'
       }}
     >
-      <div className="relative w-[375px] h-[812px]">
+      <div 
+        className="relative"
+        style={{
+          width: '375px',
+          height: '812px',
+          transform: `scale(${scale})`,
+          transformOrigin: 'center center'
+        }}
+      >
         {/* Background Rectangle */}
         <img 
           className="rectangle absolute top-0 left-0 w-[375px] h-[812px]" 
