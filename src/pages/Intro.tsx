@@ -7,56 +7,62 @@ const Intro: FC = () => {
   const isMobile = useMobile();
 
   useEffect(() => {
-    // 3초 후 start(/start)로 이동
-    const t = setTimeout(() => navigate('/start'), 3000);
-    return () => clearTimeout(t);
+    // 3초 후 start 페이지로 이동
+    const timer = setTimeout(() => navigate('/start'), 3000);
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
-    <div className="relative w-full h-screen bg-[#010d25] overflow-hidden">
-      <div className={`relative mx-auto h-full ${isMobile ? 'w-full' : 'w-[calc(100vh*0.46)]'} min-w-[375px]`}>
+    <div className="intro relative w-full h-screen bg-[#010d25] overflow-hidden">
+      <div className={`relative mx-auto h-full ${isMobile ? 'w-full' : 'max-w-[375px]'}`}>
+        {/* Background Rectangle */}
         <img 
-          className="w-full absolute top-0"
+          className="rectangle absolute top-0 left-0 w-full h-auto" 
           src="https://c.animaapp.com/UVegOpMX/img/rectangle-23803.svg" 
-          alt="Background pattern"
+          alt=""
         />
         
+        {/* Logo/Group Image */}
         <img 
-          className="absolute top-0 w-full"
-          src="https://c.animaapp.com/UVegOpMX/img/-system-status-bar.svg" 
-          alt="Status bar"
+          className="group absolute top-[161px] left-1/2 -translate-x-1/2 w-[260px]" 
+          src="https://c.animaapp.com/UVegOpMX/img/group.png" 
+          alt="Travel Shot Logo"
         />
-
-        <div className="absolute w-full top-1/2 -translate-y-1/2">
-          <div className="relative px-4">
-            <img 
-              className="w-full max-w-[280px] mx-auto mb-4"
-              src="https://c.animaapp.com/UVegOpMX/img/group.png" 
-              alt="Travel Shot Logo"
-            />
-            
-            <div className="text-center">
-              <h1 className="text-white text-2xl mb-2">Travel Shot</h1>
-              <p className="text-[#317cc4] text-lg">Travel, lighter and safer</p>
-            </div>
-          </div>
-
-          <div className="relative mt-8 px-4">
-            <img 
-              className="w-full max-w-[320px] mx-auto"
-              src="https://c.animaapp.com/UVegOpMX/img/black-titanium.png" 
-              alt="iPhone mockup"
-            />
-            <img 
-              className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[320px]"
-              src="https://c.animaapp.com/UVegOpMX/img/union.svg" 
-              alt="Overlay effect"
-            />
-          </div>
+        
+        {/* System Status Bar */}
+        <img 
+          className="system-status-bar absolute top-0 left-0 w-full" 
+          src="https://c.animaapp.com/UVegOpMX/img/-system-status-bar.svg" 
+          alt=""
+        />
+        
+        {/* iPhone Mockup with Union Overlay */}
+        <div className="overlap-group absolute top-[377px] left-1/2 -translate-x-1/2 w-[289px] h-[316px]">
+          <img 
+            className="union absolute top-0 left-0 w-[289px] h-[316px]" 
+            src="https://c.animaapp.com/UVegOpMX/img/union.svg" 
+            alt=""
+          />
+          <img 
+            className="black-titanium absolute top-[9px] left-[9px] w-[271px] h-[297px]" 
+            src="https://c.animaapp.com/UVegOpMX/img/black-titanium.png" 
+            alt=""
+          />
         </div>
-
-        <div className="absolute bottom-0 left-0 w-full">
-          <div className="w-[134px] h-1 bg-[#313b58] rounded-full mx-auto mb-2" />
+        
+        {/* Title Frame */}
+        <div className="frame absolute top-[300px] left-1/2 -translate-x-1/2 w-full px-4 text-center">
+          <h1 className="text-wrapper text-white text-[32px] font-normal leading-[38.4px] mb-1">
+            Travel Shot
+          </h1>
+          <p className="div text-[#317cc4] text-xl font-normal leading-6">
+            Travel, lighter and safer
+          </p>
+        </div>
+        
+        {/* Home Indicator */}
+        <div className="system-home absolute bottom-2 left-1/2 -translate-x-1/2">
+          <div className="home w-[134px] h-[5px] bg-[#313b58] rounded-[100px]" />
         </div>
       </div>
     </div>
