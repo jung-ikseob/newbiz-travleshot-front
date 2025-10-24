@@ -16,11 +16,16 @@ const Intro: FC = () => {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
       
-      // 항상 viewport 크기에 맞춰 scale 계산
-      const scaleByWidth = viewportWidth / 375;
-      const scaleByHeight = viewportHeight / 812;
-      // 둘 중 작은 값을 사용하여 화면을 벗어나지 않도록
-      setScale(Math.min(scaleByWidth, scaleByHeight));
+      if (viewportWidth <= 375) {
+        // 375px 이하일 때는 스케일 1
+        setScale(1);
+      } else {
+        // 375px 이상일 때는 비율에 맞춰 확대
+        const scaleByWidth = viewportWidth / 375;
+        const scaleByHeight = viewportHeight / 812;
+        // 둘 중 작은 값을 사용하여 화면을 벗어나지 않도록
+        setScale(Math.min(scaleByWidth, scaleByHeight));
+      }
     };
 
     updateScale();
@@ -30,7 +35,10 @@ const Intro: FC = () => {
 
   return (
     <div 
-      className="intro w-full h-screen flex items-center justify-center overflow-hidden bg-white"
+      className="intro w-full h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background: 'linear-gradient(0deg, rgba(1, 13, 37, 1) 0%, rgba(1, 13, 37, 1) 100%), linear-gradient(180deg, rgba(16, 50, 113, 1) 0%, rgba(19, 65, 142, 1) 51%, rgba(102, 143, 207, 1) 100%)'
+      }}
     >
       <div 
         className="relative"
