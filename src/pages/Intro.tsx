@@ -56,13 +56,6 @@ const Intro: FC = () => {
           alt=""
         />
         
-        {/* System Status Bar */}
-        <img 
-          className="system-status-bar absolute top-0 left-0 w-full h-[38px] object-cover" 
-          src="https://c.animaapp.com/UVegOpMX/img/-system-status-bar.svg" 
-          alt=""
-        />
-        
         {/* Title Frame */}
         <div 
           className="frame absolute flex flex-col items-center w-[249px]"
@@ -125,22 +118,6 @@ const Intro: FC = () => {
             }}
             src="https://c.animaapp.com/UVegOpMX/img/black-titanium.png" 
             alt=""
-          />
-        </div>
-        
-        {/* Home Indicator */}
-        <div 
-          className="system-home absolute left-0 bottom-0 w-[375px] h-[21px] flex items-end justify-center"
-        >
-          <div 
-            className="home bg-[#313b58]"
-            style={{
-              marginBottom: '8px',
-              width: '134px',
-              height: '5px',
-              marginLeft: '1px',
-              borderRadius: '100px'
-            }}
           />
         </div>
       </div>

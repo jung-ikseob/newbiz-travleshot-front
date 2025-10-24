@@ -51,13 +51,6 @@ const Start: FC = () => {
           alt=""
         />
 
-        {/* System Status Bar */}
-        <img
-          className="system-status-bar absolute top-0 left-0 w-full h-[38px] object-cover"
-          src="https://c.animaapp.com/b3GmPxRF/img/-system-status-bar.svg"
-          alt=""
-        />
-
         {/* Title Frame */}
         <div 
           className="frame absolute flex flex-col items-center w-[249px]"
@@ -278,18 +271,6 @@ const Start: FC = () => {
                   START
                 </div>
               </button>
-            </div>
-            <div className="system-home relative self-stretch w-full h-[21px]">
-              <div 
-                className="home absolute bg-[#313b58]"
-                style={{
-                  left: 'calc(50% - 67px)',
-                  bottom: '8px',
-                  width: '134px',
-                  height: '5px',
-                  borderRadius: '100px'
-                }}
-              />
             </div>
           </div>
         </div>
