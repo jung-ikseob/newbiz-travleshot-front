@@ -105,14 +105,15 @@ const Start: FC = () => {
 
         {/* Language Selector Frame */}
         <div 
-          className="frame-7 absolute inline-flex flex-col items-center gap-[10px]"
+          className="frame-7 absolute"
           style={{
             top: '451px',
-            left: 'calc(50% - 60px)'
+            left: 'calc(50% - 60px)',
+            width: '120px'
           }}
         >
           <div 
-            className="text-wrapper-5 self-stretch text-center underline cursor-pointer"
+            className="text-wrapper-5 text-center underline cursor-pointer"
             style={{
               marginTop: '-1px',
               fontFamily: '"Pretendard-Regular", Helvetica',
@@ -127,12 +128,14 @@ const Start: FC = () => {
             언어 변경
           </div>
           {isLanguageOpen && (
-            <div
-            className="frame-8 flex flex-col w-[120px] items-start p-[6px] bg-white rounded-xl"
-            style={{
-              boxShadow: '0px 0px 20px #191f2833'
-            }}
-          >
+            <div 
+              className="frame-8 flex flex-col w-[120px] items-start p-[6px] bg-white rounded-xl absolute"
+              style={{
+                boxShadow: '0px 0px 20px #191f2833',
+                top: '34px',
+                left: '0'
+              }}
+            >
             <div 
               className="frame-9 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg"
               style={{
