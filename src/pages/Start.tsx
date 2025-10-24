@@ -30,7 +30,10 @@ const Start: FC = () => {
 
   return (
     <div 
-      className="start w-full h-screen flex items-center justify-center overflow-hidden bg-white"
+      className="start w-full h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, rgba(16, 50, 113, 1) 0%, rgba(19, 65, 142, 1) 51%, rgba(102, 143, 207, 1) 100%)'
+      }}
     >
       <div 
         className="relative"
