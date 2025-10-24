@@ -130,10 +130,11 @@ const Start: FC = () => {
               }}
             >
             <div 
-              className="frame-9 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg"
+              className="frame-9 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg cursor-pointer"
               style={{
                 backgroundColor: '#317cc426'
               }}
+              onClick={() => setIsLanguageOpen(false)}
             >
               <div 
                 className="text-wrapper-6 flex-1"
@@ -150,7 +151,10 @@ const Start: FC = () => {
                 한글
               </div>
             </div>
-            <div className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg">
+            <div 
+              className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg cursor-pointer hover:bg-gray-100"
+              onClick={() => setIsLanguageOpen(false)}
+            >
               <div 
                 className="text-wrapper-7 flex-1"
                 style={{
@@ -166,7 +170,10 @@ const Start: FC = () => {
                 일본어
               </div>
             </div>
-            <div className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg">
+            <div 
+              className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg cursor-pointer hover:bg-gray-100"
+              onClick={() => setIsLanguageOpen(false)}
+            >
               <div 
                 className="text-wrapper-7 flex-1"
                 style={{
