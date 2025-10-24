@@ -6,95 +6,258 @@ const Start: FC = () => {
   const navigate = useNavigate();
   const isMobile = useMobile();
 
-  // 컨테이너 너비: 모바일(<=375)일 때 100%, 그 외에는 높이에 비례한 너비로 확장
-  const containerClass = 'relative mx-auto h-full';
-  const containerStyle: React.CSSProperties = isMobile
-    ? { width: '100%', minWidth: 375 }
-    : { width: 'calc(100vh * 375 / 812)', minWidth: 375 };
-
   return (
-    <div className="relative w-full h-screen bg-[#010d25] overflow-hidden flex items-center justify-center">
-      <div className={containerClass} style={containerStyle}>
-        {/* top background rectangle */}
+    <div 
+      className="start relative overflow-hidden flex items-center justify-center"
+      style={{
+        width: isMobile ? '100%' : '375px',
+        height: '812px',
+        margin: '0 auto',
+        background: 'linear-gradient(180deg, rgba(16, 50, 113, 1) 0%, rgba(19, 65, 142, 1) 51%, rgba(102, 143, 207, 1) 100%)'
+      }}
+    >
+      <div className="relative w-[375px] h-[812px]">
+        {/* Background Rectangle */}
         <img
-          className="rectangle absolute top-0 left-0 w-full"
+          className="rectangle absolute top-0 left-0 w-[375px] h-[812px]"
           src="https://c.animaapp.com/b3GmPxRF/img/rectangle-23803.svg"
-          alt="Background pattern"
+          alt=""
         />
 
-        {/* system status bar */}
+        {/* System Status Bar */}
         <img
-          className="system-status-bar absolute top-0 left-0 w-full"
+          className="system-status-bar absolute top-0 left-0 w-full h-[38px] object-cover"
           src="https://c.animaapp.com/b3GmPxRF/img/-system-status-bar.svg"
-          alt="Status bar"
+          alt=""
         />
 
-        {/* title group */}
-        <div className="frame absolute left-1/2 -translate-x-1/2" style={{ top: '120px', width: '100%' }}>
-          <div className="text-center px-4">
-            <img
-              className="group mx-auto mb-4 max-w-[280px] w-full"
-              src="https://c.animaapp.com/b3GmPxRF/img/group.png"
-              alt="Travel Shot Logo"
-            />
-            <div className="text-wrapper text-white text-2xl">Travel Shot</div>
-            <div className="div text-[#317cc4] text-lg">Travel, lighter and safer</div>
-          </div>
+        {/* Title Frame */}
+        <div 
+          className="frame absolute flex flex-col items-center w-[249px]"
+          style={{
+            top: '160px',
+            left: 'calc(50% - 124px)'
+          }}
+        >
+          <h1 
+            className="text-wrapper relative self-stretch text-center"
+            style={{
+              marginTop: '-1px',
+              fontFamily: '"Gotham-Medium", Helvetica',
+              fontWeight: 500,
+              color: '#ffffff',
+              fontSize: '46px',
+              letterSpacing: '-0.92px',
+              lineHeight: '55.2px'
+            }}
+          >
+            Travel Shot
+          </h1>
+          <p 
+            className="div relative self-stretch text-center"
+            style={{
+              fontFamily: '"Gotham-Book", Helvetica',
+              fontWeight: 400,
+              color: '#ffffffcc',
+              fontSize: '22px',
+              letterSpacing: '-0.44px',
+              lineHeight: '33px'
+            }}
+          >
+            Travel, lighter and safer
+          </p>
         </div>
 
-        {/* union overlay (e.g. phone mockup overlay) */}
+        {/* Union overlay */}
         <img
-          className="union absolute left-1/2 -translate-x-1/2"
-          style={{ top: '230px', maxWidth: 320, width: '100%' }}
+          className="union absolute w-[375px] h-[128px] left-0"
+          style={{ top: '294px' }}
           src="https://c.animaapp.com/b3GmPxRF/img/union.svg"
-          alt="Overlay"
+          alt=""
         />
 
-        {/* action area (buttons) */}
-        <div className="frame-2 absolute left-0 right-0 px-4" style={{ bottom: '140px' }}>
-          <div className="frame-wrapper max-w-[320px] mx-auto">
-            <div className="frame-3">
-              <div className="frame-4">
-                <div className="text-wrapper-2 text-white text-base">K-ID가 이미 있어요!</div>
-                <p className="p text-sm text-[#9fb6da]">I already have a K-ID</p>
+        {/* Language Selector Frame */}
+        <div 
+          className="frame-7 absolute inline-flex flex-col items-center gap-[10px]"
+          style={{
+            top: '451px',
+            left: 'calc(50% - 60px)'
+          }}
+        >
+          <div 
+            className="text-wrapper-5 self-stretch text-center underline"
+            style={{
+              marginTop: '-1px',
+              fontFamily: '"Pretendard-Regular", Helvetica',
+              fontWeight: 400,
+              color: '#ffffff99',
+              fontSize: '16px',
+              letterSpacing: 0,
+              lineHeight: '24px'
+            }}
+          >
+            언어 변경
+          </div>
+          <div 
+            className="frame-8 flex flex-col w-[120px] items-start p-[6px] bg-white rounded-xl"
+            style={{
+              boxShadow: '0px 0px 20px #191f2833'
+            }}
+          >
+            <div 
+              className="frame-9 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg"
+              style={{
+                backgroundColor: '#317cc426'
+              }}
+            >
+              <div 
+                className="text-wrapper-6 flex-1"
+                style={{
+                  marginTop: '-1px',
+                  fontFamily: '"Pretendard-SemiBold", Helvetica',
+                  fontWeight: 600,
+                  color: '#191f28',
+                  fontSize: '16px',
+                  letterSpacing: 0,
+                  lineHeight: '24px'
+                }}
+              >
+                한글
               </div>
             </div>
-
-            <div className="frame-5 mt-4">
-              <div className="div-wrapper">
-                <div className="frame-6">
-                  <div className="text-wrapper-3">
-                    <button
-                      onClick={() => navigate('/login')}
-                      className="w-full py-3 rounded-md bg-transparent border border-white text-white text-base"
-                    >
-                      K-ID가 이미 있어요!
-                    </button>
-                  </div>
-                  <div className="text-wrapper-4 mt-3">
-                    <button
-                      onClick={() => navigate('/main')}
-                      className="w-full py-3 rounded-md bg-white text-black text-base"
-                    >
-                      시작하기 / START
-                    </button>
-                  </div>
-                </div>
+            <div className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg">
+              <div 
+                className="text-wrapper-7 flex-1"
+                style={{
+                  marginTop: '-1px',
+                  fontFamily: '"Pretendard-Regular", Helvetica',
+                  fontWeight: 400,
+                  color: '#191f28',
+                  fontSize: '16px',
+                  letterSpacing: 0,
+                  lineHeight: '24px'
+                }}
+              >
+                일본어
               </div>
-              <div className="system-home mt-4 flex justify-center">
-                <div className="home w-[134px] h-1 bg-[#313b58] rounded-full" />
+            </div>
+            <div className="frame-10 flex items-center justify-center gap-[10px] px-3 py-[10px] self-stretch w-full rounded-lg">
+              <div 
+                className="text-wrapper-7 flex-1"
+                style={{
+                  marginTop: '-1px',
+                  fontFamily: '"Pretendard-Regular", Helvetica',
+                  fontWeight: 400,
+                  color: '#191f28',
+                  fontSize: '16px',
+                  letterSpacing: 0,
+                  lineHeight: '24px'
+                }}
+              >
+                영어
               </div>
             </div>
           </div>
         </div>
 
-        {/* language selector area (bottom) */}
-        <div className="frame-7 absolute left-0 right-0 px-4" style={{ bottom: '20px' }}>
-          <div className="text-wrapper-5 text-center text-sm text-[#9fb6da]">언어 변경</div>
-          <div className="frame-8 flex justify-center gap-2 mt-2">
-            <div className="frame-9 px-3 py-1 bg-transparent border border-white rounded">한글</div>
-            <div className="frame-10 px-3 py-1 bg-transparent border border-white rounded">日本語</div>
-            <div className="frame-10 px-3 py-1 bg-transparent border border-white rounded">English</div>
+        {/* Action Buttons Frame */}
+        <div 
+          className="frame-2 absolute inline-flex flex-col items-start left-0"
+          style={{ top: '649px' }}
+        >
+          <div className="frame-wrapper flex flex-col w-[375.53px] items-center py-[6px] px-0">
+            <div className="frame-3 inline-flex items-start gap-[2px]">
+              <div className="frame-4 inline-flex flex-col items-start">
+                <div 
+                  className="text-wrapper-2 relative self-stretch"
+                  style={{
+                    marginTop: '-1px',
+                    fontFamily: '"Pretendard-Medium", Helvetica',
+                    fontWeight: 500,
+                    color: '#ffffff',
+                    fontSize: '16px',
+                    letterSpacing: 0,
+                    lineHeight: '24px'
+                  }}
+                >
+                  K-ID가 이미 있어요!
+                </div>
+                <p 
+                  className="p relative self-stretch text-center"
+                  style={{
+                    opacity: 0.6,
+                    fontFamily: '"Pretendard-Regular", Helvetica',
+                    fontWeight: 400,
+                    color: '#ffffff',
+                    fontSize: '12px',
+                    letterSpacing: 0,
+                    lineHeight: '18px'
+                  }}
+                >
+                  I already have a K-ID
+                </p>
+              </div>
+              <img 
+                className="fi-chevron-right w-6 h-6" 
+                src="https://c.animaapp.com/b3GmPxRF/img/fi-chevron-right.svg" 
+                alt=""
+              />
+            </div>
+          </div>
+          
+          <div className="frame-5 flex flex-col w-[375.53px] items-start">
+            <div className="div-wrapper flex flex-col items-start gap-[10px] px-5 py-4 self-stretch w-full">
+              <button
+                onClick={() => navigate('/main')}
+                className="frame-6 flex h-14 items-center justify-center px-[10px] py-[14px] self-stretch w-full bg-white rounded-xl flex-col cursor-pointer border-0"
+              >
+                <div 
+                  className="text-wrapper-3 w-fit"
+                  style={{
+                    marginTop: '-8px',
+                    fontFamily: '"Pretendard-SemiBold", Helvetica',
+                    fontWeight: 600,
+                    color: '#191f28',
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    fontSize: '16px',
+                    letterSpacing: 0,
+                    lineHeight: '24px'
+                  }}
+                >
+                  시작하기
+                </div>
+                <div 
+                  className="text-wrapper-4 w-fit"
+                  style={{
+                    marginBottom: '-6px',
+                    opacity: 0.6,
+                    fontFamily: '"Pretendard-Regular", Helvetica',
+                    fontWeight: 400,
+                    color: '#191f28',
+                    fontSize: '12px',
+                    textAlign: 'center',
+                    letterSpacing: 0,
+                    lineHeight: '18px',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  START
+                </div>
+              </button>
+            </div>
+            <div className="system-home relative self-stretch w-full h-[21px]">
+              <div 
+                className="home absolute bg-[#313b58]"
+                style={{
+                  left: 'calc(50% - 67px)',
+                  bottom: '8px',
+                  width: '134px',
+                  height: '5px',
+                  borderRadius: '100px'
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
