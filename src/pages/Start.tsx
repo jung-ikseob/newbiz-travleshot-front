@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Start: FC = () => {
   const navigate = useNavigate();
   const [scale, setScale] = useState(1);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   useEffect(() => {
     const updateScale = () => {
@@ -111,7 +112,7 @@ const Start: FC = () => {
           }}
         >
           <div 
-            className="text-wrapper-5 self-stretch text-center underline"
+            className="text-wrapper-5 self-stretch text-center underline cursor-pointer"
             style={{
               marginTop: '-1px',
               fontFamily: '"Pretendard-Regular", Helvetica',
@@ -121,10 +122,12 @@ const Start: FC = () => {
               letterSpacing: 0,
               lineHeight: '24px'
             }}
+            onClick={() => setIsLanguageOpen(!isLanguageOpen)}
           >
             언어 변경
           </div>
-          <div 
+          {isLanguageOpen && (
+            <div
             className="frame-8 flex flex-col w-[120px] items-start p-[6px] bg-white rounded-xl"
             style={{
               boxShadow: '0px 0px 20px #191f2833'
@@ -184,6 +187,7 @@ const Start: FC = () => {
               </div>
             </div>
           </div>
+          )}
         </div>
 
         {/* Action Buttons Frame */}
