@@ -1,0 +1,120 @@
+.intro {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  background: linear-gradient(
+      0deg,
+      rgba(1, 13, 37, 1) 0%,
+      rgba(1, 13, 37, 1) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 50, 113, 1) 0%,
+      rgba(19, 65, 142, 1) 51%,
+      rgba(102, 143, 207, 1) 100%
+    );
+}
+
+.intro .rectangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 812px;
+}
+
+.intro .group {
+  position: absolute;
+  width: 488.33%;
+  height: 191.58%;
+  top: 0;
+  left: 0;
+}
+
+.intro .system-status-bar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 38px;
+  object-fit: cover;
+}
+
+.intro .overlap-group {
+  position: absolute;
+  width: 375px;
+  height: 518px;
+  top: 294px;
+  left: 0;
+}
+
+.intro .union {
+  position: absolute;
+  width: 375px;
+  height: 128px;
+  top: 0;
+  left: 0;
+}
+
+.intro .black-titanium {
+  position: absolute;
+  width: 244px;
+  height: 412px;
+  top: 106px;
+  left: 74px;
+}
+
+.intro .frame {
+  display: flex;
+  flex-direction: column;
+  width: 249px;
+  align-items: center;
+  position: absolute;
+  top: 160px;
+  left: calc(50.00% - 124px);
+}
+
+.intro .text-wrapper {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1.00px;
+  font-family: "Gotham-Medium", Helvetica;
+  font-weight: 500;
+  color: #317cc4;
+  font-size: 46px;
+  text-align: center;
+  letter-spacing: -0.92px;
+  line-height: 55.2px;
+}
+
+.intro .div {
+  position: relative;
+  align-self: stretch;
+  font-family: "Gotham-Book", Helvetica;
+  font-weight: 400;
+  color: #317cc4cc;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: -0.44px;
+  line-height: 33px;
+}
+
+.intro .system-home {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 375px;
+  height: 21px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.intro .home {
+  margin-bottom: 8px;
+  width: 134px;
+  height: 5px;
+  margin-left: 1px;
+  background-color: #313b58;
+  border-radius: 100px;
+}
