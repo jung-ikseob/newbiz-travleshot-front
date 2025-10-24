@@ -7,8 +7,8 @@ const Intro: FC = () => {
   const isMobile = useMobile();
 
   useEffect(() => {
-    // 1초 후 메인(/main)으로 이동
-    const t = setTimeout(() => navigate('/main'), 1000);
+    // 3초 후 start(/start)로 이동
+    const t = setTimeout(() => navigate('/start'), 3000);
     return () => clearTimeout(t);
   }, [navigate]);
 
