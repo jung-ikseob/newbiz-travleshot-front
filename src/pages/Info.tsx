@@ -56,72 +56,74 @@ const Info: FC = () => {
           onClick={() => navigate(-1)}
         />
 
-        {/* Main Content Frame */}
+        {/* Title Section */}
         <div 
-          className="frame absolute inline-flex flex-col items-start gap-5 px-5"
+          className="frame absolute inline-flex flex-col items-start gap-1 px-5"
           style={{
             top: '112px',
             left: '0',
             width: '375px'
           }}
         >
-          {/* Title Section */}
-          <div className="div inline-flex flex-col items-start gap-1">
-            <h1 
-              className="text-wrapper"
-              style={{
-                fontFamily: '"Pretendard-SemiBold", Helvetica',
-                fontWeight: 600,
-                color: '#191f28',
-                fontSize: '28px',
-                letterSpacing: 0,
-                lineHeight: '42px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              여권을 준비해주세요
-            </h1>
-            <p 
-              className="text-wrapper-2"
-              style={{
-                fontFamily: '"Pretendard-Regular", Helvetica',
-                fontWeight: 400,
-                color: '#191f28',
-                fontSize: '16px',
-                letterSpacing: 0,
-                lineHeight: '24px',
-                whiteSpace: 'nowrap'
-              }}
-            >
-              Please prepare your passport.
-            </p>
-          </div>
+          <h1 
+            className="text-wrapper"
+            style={{
+              fontFamily: '"Pretendard-SemiBold", Helvetica',
+              fontWeight: 600,
+              color: '#191f28',
+              fontSize: '28px',
+              letterSpacing: 0,
+              lineHeight: '42px',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            여권을 준비해주세요
+          </h1>
+          <p 
+            className="text-wrapper-2"
+            style={{
+              fontFamily: '"Pretendard-Regular", Helvetica',
+              fontWeight: 400,
+              color: '#191f28',
+              fontSize: '16px',
+              letterSpacing: 0,
+              lineHeight: '24px',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            Please prepare your passport.
+          </p>
+        </div>
 
-          {/* Next Button */}
-          <div className="frame-2 inline-flex flex-col items-start gap-[10px] self-stretch w-full">
-            <button
-              onClick={() => navigate('/main')}
-              className="frame-wrapper flex w-full items-center justify-center gap-[10px] px-[10px] py-4 bg-[#317cc4] rounded-xl cursor-pointer border-0"
-            >
-              <div className="frame-3 inline-flex flex-col items-center justify-center relative flex-1">
+        {/* Next Button - Bottom */}
+        <div 
+          className="frame-2 absolute inline-flex flex-col items-start left-0"
+          style={{ top: '649px' }}
+        >
+          <div className="frame-5 flex flex-col w-[375px] items-start">
+            <div className="div-wrapper flex flex-col items-start gap-[10px] px-5 py-4 self-stretch w-full">
+              <button
+                onClick={() => navigate('/main')}
+                className="frame-6 flex h-14 items-center justify-center px-[10px] py-[14px] self-stretch w-full bg-[#317cc4] rounded-xl flex-col cursor-pointer border-0"
+              >
                 <div 
-                  className="text-wrapper-3"
+                  className="text-wrapper-3 w-fit"
                   style={{
-                    marginTop: '-6px',
+                    marginTop: '-8px',
                     fontFamily: '"Pretendard-SemiBold", Helvetica',
                     fontWeight: 600,
                     color: '#ffffff',
-                    fontSize: '16px',
                     textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    fontSize: '16px',
                     letterSpacing: 0,
-                    lineHeight: '24px',
-                    whiteSpace: 'nowrap'
+                    lineHeight: '24px'
                   }}
                 >
                   다음
                 </div>
                 <div 
-                  className="text-wrapper-4"
+                  className="text-wrapper-4 w-fit"
                   style={{
                     marginBottom: '-6px',
                     opacity: 0.6,
@@ -137,8 +139,8 @@ const Info: FC = () => {
                 >
                   NEXT
                 </div>
-              </div>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
 
