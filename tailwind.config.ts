@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        pretendard: ["Pretendard-Regular", "Pretendard-Medium", "Pretendard-SemiBold", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +60,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "service-blue": "#2063D2",
+        "service-bg": "#F1F3F5",
+        "service-weather": "#C2E0F3",
+        "service-gray": "#FBFAFA",
+        "service-icon-bg": "rgba(216, 224, 232, 0.50)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +88,22 @@ export default {
             height: "0",
           },
         },
+        "slide-up": {
+          from: {
+            transform: "translateY(100%)",
+          },
+          to: {
+            transform: "translateY(0)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-up": "slide-up 0.3s ease-out",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },

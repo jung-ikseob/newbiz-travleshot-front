@@ -446,16 +446,12 @@
   position: relative;
   width: 375px;
   height: 812px;
-  background-color: #ffffff;
+  background: linear-gradient(180deg, rgba(229, 244, 255, 0.80) 19.34%, rgba(241, 243, 245, 0.80) 52.78%);
   overflow: hidden;
 }
 
 .info .rectangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 375px;
-  height: 812px;
+  display: none;
 }
 
 .info .frame {
@@ -656,4 +652,5 @@
   left: 14px;
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 }

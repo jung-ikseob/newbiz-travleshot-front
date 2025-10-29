@@ -201,8 +201,12 @@ const Start: FC = () => {
           <div className="frame-wrapper flex flex-col w-[375.53px] items-center py-[6px] px-0">
             <div className="frame-3 inline-flex items-start gap-[2px]">
               <div className="frame-4 inline-flex flex-col items-start">
-                <div 
-                  className="text-wrapper-2 relative self-stretch"
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => navigate('/login')}
+                  onKeyDown={(e) => { if (e.key === 'Enter') navigate('/login'); }}
+                  className="text-wrapper-2 relative self-stretch cursor-pointer"
                   style={{
                     marginTop: '-1px',
                     fontFamily: '"Pretendard-Medium", Helvetica',
@@ -230,18 +234,25 @@ const Start: FC = () => {
                   I already have a K-ID
                 </p>
               </div>
-              <img 
-                className="fi-chevron-right w-6 h-6" 
-                src="https://c.animaapp.com/b3GmPxRF/img/fi-chevron-right.svg" 
-                alt=""
-              />
+              <button
+                type="button"
+                onClick={() => navigate('/login')}
+                className="p-0 ml-2"
+                aria-label="Go to login"
+              >
+                <img
+                  className="fi-chevron-right w-6 h-6"
+                  src="https://c.animaapp.com/b3GmPxRF/img/fi-chevron-right.svg"
+                  alt=""
+                />
+              </button>
             </div>
           </div>
           
           <div className="frame-5 flex flex-col w-[375.53px] items-start">
             <div className="div-wrapper flex flex-col items-start gap-[10px] px-5 py-4 self-stretch w-full">
               <button
-                onClick={() => navigate('/main')}
+                onClick={() => navigate('/info')}
                 className="frame-6 flex h-14 items-center justify-center px-[10px] py-[14px] self-stretch w-full bg-white rounded-xl flex-col cursor-pointer border-0"
               >
                 <div 
