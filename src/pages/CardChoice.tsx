@@ -329,7 +329,7 @@ const CardChoice: FC = () => {
         <div className="bg-white">
           <div className="px-5 py-4">
             <button
-              onClick={() => navigate('/issuance')}
+              onClick={() => navigate('/loading')}
               className="w-full h-[54px] bg-[#111] rounded flex items-center justify-center hover:bg-black transition-colors"
             >
               <span 
