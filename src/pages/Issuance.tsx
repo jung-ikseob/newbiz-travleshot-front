@@ -183,7 +183,7 @@ const Issuance: FC = () => {
                 </span>
               </button>
               <button
-                onClick={() => navigate('/main')}
+                onClick={() => window.location.href = 'https://www.e-arrivalcard.go.kr/portal/main/index.do'}
                 className="flex-1 h-[54px] bg-[#111] rounded flex items-center justify-center hover:bg-black transition-colors"
               >
                 <span 
