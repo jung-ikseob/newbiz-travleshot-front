@@ -1,8 +1,8 @@
 import { FC, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useEmblaCarousel from 'embla-carousel-react';
-import Card1Japanese from '@/components/cards/Card1Japanese';
 import Card2Blue from '@/components/cards/Card2Blue';
+import Card1Japanese from '@/components/cards/Card1Japanese';
 import Card3Geometric from '@/components/cards/Card3Geometric';
 
 const CardChoice: FC = () => {
@@ -54,10 +54,10 @@ const CardChoice: FC = () => {
           <div className="w-full" ref={emblaRef}>
             <div className="flex gap-4 pl-[57.5px] pr-[57.5px]">
               <div className="flex-[0_0_260px] min-w-0">
-                <Card1Japanese />
+                <Card2Blue />
               </div>
               <div className="flex-[0_0_260px] min-w-0">
-                <Card2Blue />
+                <Card1Japanese />
               </div>
               <div className="flex-[0_0_260px] min-w-0">
                 <Card3Geometric />
@@ -71,7 +71,7 @@ const CardChoice: FC = () => {
             <button
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className="w-[9px] h-[9px] rounded-full transition-colors"
+              className="w-[9px] h-[9px] rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#2063D2] focus:ring-offset-2"
               style={{
                 backgroundColor: selectedIndex === index ? '#2063D2' : '#D9D9D9'
               }}
