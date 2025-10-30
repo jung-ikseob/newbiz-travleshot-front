@@ -75,14 +75,12 @@ const OcrComplete: FC = () => {
             {/* Bottom Instruction */}
             <div className="flex flex-col items-center gap-4 pb-8">
               <button
-                onClick={() => navigate('/ocr_complete')}
+                onClick={() => navigate('/join')}
                 className="relative w-20 h-20 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors cursor-pointer"
               >
-                <svg width="28" height="28" viewBox="0 0 256 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="128" cy="24" r="24" fill="white" fillOpacity="0.2"/>
-                  <line x1="117.905" y1="32.8242" x2="139.249" y2="32.8242" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <path d="M116.521 13.9033L130.482 27.8635L139.365 18.9798" stroke="#2063D2" strokeWidth="1.5" strokeLinecap="round"/>
-                  <path d="M133.02 18.9795L139.365 18.9795L139.365 25.9596" stroke="#2063D2" strokeWidth="1.5" strokeLinecap="round"/>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 20H32" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M20 8L32 20L20 32" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
               <p 
