@@ -1,16 +1,16 @@
-import { FC, useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
-import useEmblaCarousel from 'embla-carousel-react';
-import Card2Blue from '@/components/cards/Card2Blue';
-import Card1Japanese from '@/components/cards/Card1Japanese';
-import Card3Geometric from '@/components/cards/Card3Geometric';
+import { FC, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
+import Card2Blue from "@/components/cards/Card2Blue";
+import Card1Japanese from "@/components/cards/Card1Japanese";
+import Card3Geometric from "@/components/cards/Card3Geometric";
 
 const CardChoice: FC = () => {
   const navigate = useNavigate();
   const [selectedIndex, setSelectedIndex] = useState(0);
-  
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'center',
+    align: "center",
     containScroll: false,
     slidesToScroll: 1,
     loop: false,
@@ -24,8 +24,8 @@ const CardChoice: FC = () => {
   useState(() => {
     if (!emblaApi) return;
     onSelect();
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
   });
 
   return (
@@ -37,14 +37,20 @@ const CardChoice: FC = () => {
           aria-label="Go back"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.4824 3.03516L7.51758 12L16.4824 20.9648" stroke="#6B7583" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M16.4824 3.03516L7.51758 12L16.4824 20.9648"
+              stroke="#6B7583"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
 
         <div className="px-5 pt-28 pb-4">
-          <h1 
+          <h1
             className="text-xl font-semibold text-[#191F28] leading-[120%]"
-            style={{ fontFamily: 'Pretendard, sans-serif' }}
+            style={{ fontFamily: "Pretendard, sans-serif" }}
           >
             원하는 카드 디자인을 선택해주세요
           </h1>
@@ -73,7 +79,7 @@ const CardChoice: FC = () => {
               onClick={() => emblaApi?.scrollTo(index)}
               className="w-[9px] h-[9px] rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#2063D2] focus:ring-offset-2"
               style={{
-                backgroundColor: selectedIndex === index ? '#2063D2' : '#D9D9D9'
+                backgroundColor: selectedIndex === index ? "#2063D2" : "#D9D9D9",
               }}
               aria-label={`Go to card ${index + 1}`}
             />
@@ -83,12 +89,12 @@ const CardChoice: FC = () => {
         <div className="bg-white">
           <div className="px-5 py-4">
             <button
-              onClick={() => navigate('/loading')}
+              onClick={() => navigate("/loading")}
               className="w-full h-[54px] bg-[#111] rounded flex items-center justify-center hover:bg-black transition-colors"
             >
-              <span 
+              <span
                 className="text-white text-base font-semibold leading-[150%]"
-                style={{ fontFamily: 'Pretendard, sans-serif' }}
+                style={{ fontFamily: "Pretendard, sans-serif" }}
               >
                 다음
               </span>
