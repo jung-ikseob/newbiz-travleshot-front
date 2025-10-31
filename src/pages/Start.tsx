@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LanguageSettings from './LanguageSettings';
 
 // Local image assets
 import unionIcon from '../assets/start/union-icon.svg';
@@ -10,6 +11,7 @@ import backgroundDecorative from '../assets/start/background-decorative.svg';
 const Start: FC = () => {
   const navigate = useNavigate();
   const [scale, setScale] = useState(1);
+  const [showLanguageSettings, setShowLanguageSettings] = useState(false);
 
   useEffect(() => {
     const updateScale = () => {
@@ -102,6 +104,7 @@ const Start: FC = () => {
 
         {/* Language Change Link */}
         <p
+          onClick={() => setShowLanguageSettings(true)}
           className="absolute left-1/2 -translate-x-1/2 text-center underline cursor-pointer"
           style={{
             top: 'calc(50% + 45px)',
@@ -176,6 +179,11 @@ const Start: FC = () => {
           </div>
         </div>
       </div>
+
+      <LanguageSettings
+        isOpen={showLanguageSettings}
+        onClose={() => setShowLanguageSettings(false)}
+      />
     </div>
   );
 };

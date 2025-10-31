@@ -1,5 +1,5 @@
 import { X, Check } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface LanguageSettingsProps {
   isOpen: boolean;
@@ -8,8 +8,20 @@ interface LanguageSettingsProps {
 
 type Language = 'korean' | 'japanese' | 'english';
 
+const LANGUAGE_STORAGE_KEY = 'preferred_language';
+
 const LanguageSettings = ({ isOpen, onClose }: LanguageSettingsProps) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>('korean');
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return (saved as Language) || 'korean';
+  });
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    if (saved) {
+      setSelectedLanguage(saved as Language);
+    }
+  }, []);
 
   if (!isOpen) return null;
 
@@ -44,7 +56,11 @@ const LanguageSettings = ({ isOpen, onClose }: LanguageSettingsProps) => {
           {languages.map((language) => (
             <button
               key={language.id}
-              onClick={() => setSelectedLanguage(language.id)}
+              onClick={() => {
+                setSelectedLanguage(language.id);
+                localStorage.setItem(LANGUAGE_STORAGE_KEY, language.id);
+                onClose();
+              }}
               className="flex items-center justify-between px-5 pr-[17px] hover:bg-[#F9F9F9] transition-colors"
             >
               <span 
