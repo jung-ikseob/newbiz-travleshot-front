@@ -47,7 +47,7 @@ const Start: FC = () => {
       </div>
 
       <div
-        className="relative z-10 flex flex-col"
+        className="relative z-10 flex flex-col h-full"
         style={{
           width: '375px',
           height: '812px',
@@ -57,15 +57,10 @@ const Start: FC = () => {
           maxHeight: '100vh'
         }}
       >
-        {/* Logo and Tagline */}
-        <div
-          className="absolute flex flex-col items-center gap-2.5"
-          style={{
-            top: '175px',
-            left: '50%',
-            transform: 'translateX(-50%)'
-          }}
-        >
+        {/* Content Area */}
+        <div className="flex-1 flex flex-col items-center pt-[175px] pb-4">
+          {/* Logo and Tagline */}
+          <div className="flex flex-col items-center gap-2.5">
           <div className="w-[180px] h-[24.463px]">
             <img
               src={travelShotLogo}
@@ -88,9 +83,8 @@ const Start: FC = () => {
 
         {/* Union decorative element */}
         <div
-          className="absolute left-1/2 -translate-x-1/2"
+          className="relative left-1/2 -translate-x-1/2 mt-[90px]"
           style={{
-            top: 'calc(50% - 48.685px)',
             width: '455.634px',
             height: '127.602px'
           }}
@@ -102,44 +96,37 @@ const Start: FC = () => {
           />
         </div>
 
-        {/* Language Change Link */}
-        <p
-          onClick={() => setShowLanguageSettings(true)}
-          className="absolute left-1/2 -translate-x-1/2 text-center underline cursor-pointer"
-          style={{
-            top: 'calc(50% + 45px)',
-            fontFamily: 'Pretendard, sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.6)',
-            fontSize: '16px',
-            lineHeight: '1.5',
-            textDecorationSkipInk: 'none',
-            textUnderlinePosition: 'from-font'
-          }}
-        >
-          언어 변경
-        </p>
+          {/* Language Change Link */}
+          <p
+            onClick={() => setShowLanguageSettings(true)}
+            className="relative text-center underline cursor-pointer mt-[45px]"
+            style={{
+              fontFamily: 'Pretendard, sans-serif',
+              fontWeight: 400,
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '16px',
+              lineHeight: '1.5',
+              textDecorationSkipInk: 'none',
+              textUnderlinePosition: 'from-font'
+            }}
+          >
+            언어 변경
+          </p>
+        </div>
 
         {/* Bottom Actions */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col"
-          style={{
-            width: '375.53px'
-          }}
-        >
+        <div className="bg-transparent w-full">
           {/* Already have K-ID */}
-          <div className="flex flex-col items-center py-1.5 px-0">
+          <div className="flex justify-center items-center py-1.5 gap-0.5">
             <button
               onClick={() => navigate('/login')}
-              className="flex gap-0.5 items-center p-0 cursor-pointer bg-transparent border-0"
+              className="flex items-center p-0 cursor-pointer bg-transparent border-0 hover:opacity-70 transition-opacity"
             >
               <p
-                className="text-white text-base h-full whitespace-pre-wrap"
+                className="text-white text-base leading-[150%]"
                 style={{
                   fontFamily: 'Pretendard, sans-serif',
-                  fontWeight: 500,
-                  lineHeight: '1.5',
-                  width: '127px'
+                  fontWeight: 500
                 }}
               >
                 K-ID가 이미 있어요!
@@ -155,28 +142,25 @@ const Start: FC = () => {
           </div>
 
           {/* Start Button */}
-          <div className="flex flex-col w-full">
-            <div className="flex flex-col gap-2.5 px-5 py-4 w-full">
-              <button
-                onClick={() => navigate('/info')}
-                className="bg-[#111111] flex flex-col h-[54px] items-center justify-center px-2.5 py-[14px] rounded-md w-full cursor-pointer border-0 hover:bg-[#222222] transition-colors"
+          <div className="px-5 py-4">
+            <button
+              onClick={() => navigate('/info')}
+              className="w-full h-[54px] bg-[#111111] rounded flex items-center justify-center hover:bg-[#222222] transition-colors"
+            >
+              <span
+                className="text-white text-base font-semibold leading-[150%]"
+                style={{
+                  fontFamily: 'Pretendard, sans-serif',
+                  fontWeight: 600
+                }}
               >
-                <span
-                  className="text-white text-base text-center"
-                  style={{
-                    fontFamily: 'Pretendard, sans-serif',
-                    fontWeight: 600,
-                    lineHeight: '1.5'
-                  }}
-                >
-                  시작하기
-                </span>
-              </button>
-            </div>
-
-            {/* Home Indicator */}
-            <div className="h-[21px] w-full" />
+                시작하기
+              </span>
+            </button>
           </div>
+          
+          {/* Home Indicator */}
+          <div className="h-[21px]" />
         </div>
       </div>
 
