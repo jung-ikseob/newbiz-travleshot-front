@@ -17,6 +17,9 @@ import Loading from "./pages/Loading";
 import Issuance from "./pages/Issuance";
 import Login from "./pages/Login";
 import CardChoice from "./pages/CardChoice";
+import OliveHome from "./pages/OliveHome";
+import OliveLogin from "./pages/OliveLogin";
+import OliveLoginKid from "./pages/OliveLoginKid";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +40,9 @@ const App = () => (
           <Route path="/loading" element={<Loading />} />
           <Route path="/issuance" element={<Issuance />} />
           <Route path="/card_choice" element={<CardChoice />} />
+          <Route path="/olive_home" element={<OliveHome />} />
+          <Route path="/olive_login" element={<OliveLogin />} />
+          <Route path="/olive_login_kid" element={<OliveLoginKid />} />
           <Route path="/start" element={<Start />} />
           <Route path="/main" element={<Index />} />
           <Route path="/kid_info" element={<KidInfo />} />
