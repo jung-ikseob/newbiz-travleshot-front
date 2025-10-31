@@ -5,43 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Shot</title>
     <meta name="description" content="Travel, lighter and safer" />
-    <meta name="author" content="Lovable" />
+    <meta name="author" content="travle-shot" />
 
     <meta property="og:title" content="Travel Shot" />
     <meta property="og:description" content="Travel, lighter and safer" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:image" content="/src/assets/intro/travel-shot-logo.svg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="@travle-shot" />
+    <meta name="twitter:image" content="/src/assets/intro/travel-shot-logo.svg" />
     
     <!-- Custom Fonts -->
-    <link rel="preconnect" href="https://anima-uploads.s3.amazonaws.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <style>
+      /* Gotham font fallback to Montserrat (similar geometric sans-serif) */
       @font-face {
-        font-family: "Gotham-Medium";
-        src: url("https://anima-uploads.s3.amazonaws.com/projects/624afd97dbf85b221b75484d/fonts/gotham-medium.otf") format("opentype");
+        font-family: "Gotham";
+        src: local("Montserrat");
         font-display: swap;
       }
       @font-face {
         font-family: "Gotham-Book";
-        src: url("https://anima-uploads.s3.amazonaws.com/projects/6546a6a8e6cfe31c46f5ccea/fonts/gotham-book.otf") format("opentype");
+        src: local("Montserrat");
+        font-weight: 400;
         font-display: swap;
       }
       @font-face {
-        font-family: "Pretendard-Medium";
-        src: url("https://anima-uploads.s3.amazonaws.com/projects/6733f3b89c04f21c988716b9/fonts/pretendard-medium.otf") format("opentype");
+        font-family: "Gotham-Medium";
+        src: local("Montserrat");
+        font-weight: 500;
+        font-display: swap;
+      }
+
+      /* Pretendard from CDN */
+      @font-face {
+        font-family: "Pretendard";
+        src: local("Pretendard Variable");
         font-display: swap;
       }
       @font-face {
         font-family: "Pretendard-Regular";
-        src: url("https://anima-uploads.s3.amazonaws.com/projects/681c02510381d3a49b99eb95/fonts/pretendard-regular.otf") format("opentype");
+        src: local("Pretendard Variable");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard-Medium";
+        src: local("Pretendard Variable");
+        font-weight: 500;
         font-display: swap;
       }
       @font-face {
         font-family: "Pretendard-SemiBold";
-        src: url("https://anima-uploads.s3.amazonaws.com/projects/67616c3af382bd2c4698df42/fonts/pretendard-semibold.otf") format("opentype");
+        src: local("Pretendard Variable");
+        font-weight: 600;
         font-display: swap;
       }
     </style>
