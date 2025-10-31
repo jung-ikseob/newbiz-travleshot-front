@@ -2,8 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Local image assets
-import iphoneFrame from '../assets/intro/iphone-frame.png';
-import appScreen from '../assets/intro/app-screen.png';
+import phone from '../assets/intro/phone.svg';
 import travelShotLogo from '../assets/intro/travel-shot-logo.svg';
 import unionIcon from '../assets/intro/union-icon.svg';
 import backgroundDecorative from '../assets/intro/background-decorative.svg';
@@ -113,41 +112,21 @@ const Intro: FC = () => {
         <div
           className="absolute"
           style={{
-            bottom: '-167.81px',
+            bottom: '0px',
             left: '50%',
             transform: 'translateX(-50%)',
-            width: '244.03px',
-            height: '580.182px'
+            width: '244px',
+            height: '500px',
+            display: 'flex',
+            alignItems: 'flex-end'
           }}
         >
-          {/* iPhone Frame */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <img
-              src={iphoneFrame}
-              alt="iPhone Frame"
-              className="absolute left-0 top-0 w-full h-full max-w-none"
-            />
-          </div>
-
-          {/* Screen Content */}
-          <div
-            className="absolute"
-            style={{
-              bottom: '8.72px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '216.363px',
-              height: '562.526px',
-              overflow: 'hidden',
-              borderRadius: '36px'
-            }}
-          >
-            <img
-              src={appScreen}
-              alt="App Screen"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <img
+            src={phone}
+            alt="Phone Mockup"
+            className="w-full h-auto"
+            style={{ maxHeight: '100%', objectFit: 'contain', objectPosition: 'bottom' }}
+          />
         </div>
       </div>
     </div>
