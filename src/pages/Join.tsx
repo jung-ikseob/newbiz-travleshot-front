@@ -47,7 +47,7 @@ const Join: FC = () => {
       return;
     }
 
-    navigate('/main');
+    navigate('/card_choice');
   };
 
   return (

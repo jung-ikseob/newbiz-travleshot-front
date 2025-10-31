@@ -7,7 +7,7 @@ const Loading: FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/issuance');
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [navigate]);

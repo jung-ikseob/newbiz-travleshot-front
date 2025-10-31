@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -194,18 +195,22 @@ const Index = () => {
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/3033b9ee04f9e846ec3648efbc95692f245e2ffb?width=70"
                   label="지도"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/545235c7614023140ed9f038508e91247b35bc8a?width=72"
                   label="쇼핑"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/1c3957d753e57d32306540d4137da96165b018e2?width=70"
                   label="식당"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/df1ff687f79c50b5c5227c9e699266ddc506979d?width=70"
                   label="액티비티"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
               </div>
 
@@ -213,18 +218,22 @@ const Index = () => {
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/360848b2f13340fd3b38c505f813619e2bffa10e?width=70"
                   label="모빌리티"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/f72b0b9320b9e758c2ddd9376210a8c2337624e2?width=70"
                   label="선불카드"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/37856e1ed01b48885a0ffff096c617115175fddc?width=70"
                   label="카드"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/6f8e8f5110d5e942b2b8cb3caa61cc4ccaf5303f?width=70"
                   label="번역"
+                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
                 />
               </div>
             </div>
@@ -248,6 +257,7 @@ const Index = () => {
                 subtitle="immigration form"
                 bgColor="#FDEEEA"
                 iconColor="#F66F47"
+                onClick={() => window.open("https://www.e-arrivalcard.go.kr/portal/main/index.do", "_blank")}
               />
               <FormCard
                 title="모바일 세관신청서 작성하기"
@@ -255,6 +265,7 @@ const Index = () => {
                 bgColor="#E4F3F4"
                 iconColor="#4CA6A8"
                 isMobile
+                onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
               />
             </div>
           </div>
@@ -367,13 +378,13 @@ const Index = () => {
   );
 };
 
-const ServiceIcon = ({ icon, label }: { icon: string; label: string }) => (
-  <div className="flex flex-col items-center gap-1">
+const ServiceIcon = ({ icon, label, onClick }: { icon: string; label: string; onClick?: () => void }) => (
+  <button onClick={onClick} className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity">
     <div className="w-[60px] h-[61px] rounded-xl bg-service-icon-bg flex items-center justify-center">
       <img src={icon} alt={label} className="w-[35px] h-[35px] rounded-xl" />
     </div>
     <span className="text-[#191F28] text-xs text-center leading-[18px]">{label}</span>
-  </div>
+  </button>
 );
 
 const FormCard = ({
@@ -382,14 +393,16 @@ const FormCard = ({
   bgColor,
   iconColor,
   isMobile = false,
+  onClick,
 }: {
   title: string;
   subtitle: string;
   bgColor: string;
   iconColor: string;
   isMobile?: boolean;
+  onClick?: () => void;
 }) => (
-  <div className="p-[22px_18px] bg-service-gray rounded-[10px]">
+  <button onClick={onClick} className="p-[22px_18px] bg-service-gray rounded-[10px] text-left hover:opacity-75 transition-opacity">
     <div className="flex flex-col gap-2.5">
       <div
         className="w-[35px] h-[35px] rounded-xl flex items-center justify-center"
@@ -427,7 +440,7 @@ const FormCard = ({
         <p className="text-[#6B7583]/80 text-xs leading-[18px]">{subtitle}</p>
       </div>
     </div>
-  </div>
+  </button>
 );
 
 const NavItem = ({
