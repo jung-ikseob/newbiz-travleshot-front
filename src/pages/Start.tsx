@@ -17,14 +17,12 @@ const Start: FC = () => {
     const updateScale = () => {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
+      const designWidth = 375;
+      const designHeight = 812;
 
-      if (viewportWidth <= 375) {
-        setScale(1);
-      } else {
-        const scaleByWidth = viewportWidth / 375;
-        const scaleByHeight = viewportHeight / 812;
-        setScale(Math.min(scaleByWidth, scaleByHeight));
-      }
+      const scaleByWidth = viewportWidth / designWidth;
+      const scaleByHeight = viewportHeight / designHeight;
+      setScale(Math.min(scaleByWidth, scaleByHeight, 1));
     };
 
     updateScale();
@@ -49,12 +47,14 @@ const Start: FC = () => {
       </div>
 
       <div
-        className="relative z-10"
+        className="relative z-10 flex flex-col"
         style={{
           width: '375px',
           height: '812px',
           transform: `scale(${scale})`,
-          transformOrigin: 'center center'
+          transformOrigin: 'center center',
+          maxWidth: '100vw',
+          maxHeight: '100vh'
         }}
       >
         {/* Logo and Tagline */}
