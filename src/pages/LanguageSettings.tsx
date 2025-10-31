@@ -14,9 +14,9 @@ const LanguageSettings = ({ isOpen, onClose }: LanguageSettingsProps) => {
   if (!isOpen) return null;
 
   const languages = [
-    { id: 'korean' as Language, label: '한글 (Korean)' },
-    { id: 'japanese' as Language, label: '일본어 (Japanese)' },
-    { id: 'english' as Language, label: '영어 (English)' },
+    { id: 'korean' as Language, label: '한국어' },
+    { id: 'japanese' as Language, label: '日本語' },
+    { id: 'english' as Language, label: 'English' },
   ];
 
   return (
