@@ -5,9 +5,21 @@ import mainCloud from '../assets/main/main_cloud.svg';
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAgreed, setIsAgreed] = useState(false);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const cardId = searchParams.get('cardId') || '1';
+
+  const handleOliveYoungSignup = () => {
+    if (!isAgreed) {
+      toast({
+        title: "개인정보 제공 동의해주세요.",
+        duration: 3000
+      });
+      return;
+    }
+    navigate('/olive_home');
+  };
 
   return (
     <div className="min-h-screen bg-service-bg font-pretendard">
@@ -294,8 +306,13 @@ const Index = () => {
                       <path d="M0.5 0.5H335.5" stroke="#6B7583" strokeOpacity="0.2" strokeLinecap="round" />
                     </svg>
 
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-[21px] h-[21px] rounded-full bg-[rgba(107,117,131,0.6)] flex items-center justify-center flex-shrink-0">
+                    <button
+                      onClick={() => setIsAgreed(!isAgreed)}
+                      className="flex items-center gap-2.5 cursor-pointer hover:opacity-75 transition-opacity"
+                    >
+                      <div className={`w-[21px] h-[21px] rounded-full flex items-center justify-center flex-shrink-0 ${
+                        isAgreed ? 'bg-[#2063D2]' : 'bg-[rgba(107,117,131,0.6)]'
+                      }`}>
                         <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M0.949219 3.23335L4.49414 6.77881L10.0512 1.22168"
@@ -305,17 +322,22 @@ const Index = () => {
                           />
                         </svg>
                       </div>
-                      <span className="text-[rgba(25,31,40,0.6)] font-pretendard text-[14px] font-normal">
+                      <span className={`font-pretendard text-[14px] font-normal ${
+                        isAgreed ? 'text-[#191F28]' : 'text-[rgba(25,31,40,0.6)]'
+                      }`}>
                         (필수)개인정보 제공 동의
                       </span>
-                    </div>
+                    </button>
                   </div>
                 </div>
               </div>
 
               <div className="w-full bg-white flex flex-col self-stretch">
                 <div className="w-full px-5 py-4 flex flex-col gap-2.5 self-stretch">
-                  <button className="w-full h-[54px] px-2.5 py-3.5 bg-[#2063D2] rounded flex justify-center items-center hover:bg-blue-700 transition-colors self-stretch">
+                  <button
+                    onClick={handleOliveYoungSignup}
+                    className="w-full h-[54px] px-2.5 py-3.5 bg-[#2063D2] rounded flex justify-center items-center hover:bg-blue-700 transition-colors self-stretch"
+                  >
                     <span className="text-white text-center font-pretendard text-base font-semibold leading-[150%]">
                       서비스 가입하기
                     </span>

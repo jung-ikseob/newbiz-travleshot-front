@@ -1,5 +1,6 @@
 import { FC, useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from '@/hooks/use-toast';
 
 // Local image assets
 import kidLogo from '../assets/olive-login/kid-logo.png';
@@ -24,7 +25,17 @@ const OliveLogin: FC = () => {
   const [keepLogin, setKeepLogin] = useState(false);
 
   const handleLogin = () => {
-    console.log('Login:', { email, password, saveId, keepLogin });
+    toast({
+      title: "서비스 준비중입니다.",
+      duration: 3000
+    });
+  };
+
+  const handleSocialLogin = (provider: string) => {
+    toast({
+      title: "서비스 준비중입니다.",
+      duration: 3000
+    });
   };
 
   return (
@@ -48,10 +59,18 @@ const OliveLogin: FC = () => {
           </h1>
 
           <div className="absolute right-4 top-[21px] flex gap-[15px] items-center">
-            <button className="w-6 h-6 flex items-center justify-center" aria-label="Search">
+            <button
+              onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+              className="w-6 h-6 flex items-center justify-center"
+              aria-label="Search"
+            >
               <img src={headerSearch} alt="Search" className="w-6 h-6" />
             </button>
-            <button className="w-6 h-6 flex items-center justify-center" aria-label="Shopping cart">
+            <button
+              onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+              className="w-6 h-6 flex items-center justify-center"
+              aria-label="Shopping cart"
+            >
               <img src={headerCart} alt="Cart" className="w-6 h-6" />
             </button>
           </div>
@@ -59,11 +78,11 @@ const OliveLogin: FC = () => {
       </div>
 
       {/* Logo */}
-      <div className="absolute left-0 right-0 top-[120px] flex items-center justify-center px-4">
+      <div className="absolute left-1/2 top-[144px] -translate-x-1/2">
         <img
           src={oliveYoungLogo}
           alt="OLIVE YOUNG"
-          className="h-[40px] object-contain"
+          className="w-[130.028px] h-[14.663px] object-contain"
         />
       </div>
 
@@ -165,7 +184,10 @@ const OliveLogin: FC = () => {
         {/* Social Login Buttons */}
         <div className="flex flex-col gap-2.5 w-full pb-32">
           {/* K-ID Button */}
-          <button className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors">
+          <button
+            onClick={() => handleSocialLogin('K-ID')}
+            className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors"
+          >
             <img
               src={kidLogo}
               alt="K-ID"
@@ -180,7 +202,10 @@ const OliveLogin: FC = () => {
           </button>
 
           {/* LINE Button */}
-          <button className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors">
+          <button
+            onClick={() => handleSocialLogin('LINE')}
+            className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors"
+          >
             <img
               src={lineIcon}
               alt="LINE"
@@ -195,7 +220,10 @@ const OliveLogin: FC = () => {
           </button>
 
           {/* Google Button */}
-          <button className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors">
+          <button
+            onClick={() => handleSocialLogin('Google')}
+            className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors"
+          >
             <img
               src={googleIcon}
               alt="Google"
@@ -210,7 +238,10 @@ const OliveLogin: FC = () => {
           </button>
 
           {/* Apple Button */}
-          <button className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors">
+          <button
+            onClick={() => handleSocialLogin('Apple')}
+            className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors"
+          >
             <img
               src={appleIcon}
               alt="Apple"
@@ -229,19 +260,39 @@ const OliveLogin: FC = () => {
       {/* Bottom Navigation */}
       <div className="absolute bottom-0 left-0 w-full flex flex-col bg-white">
         <div className="border-t border-[#f0f1f4] flex justify-between items-center px-6 pt-1.5 pb-5">
-          <button className="w-6 h-6 flex items-center justify-center" aria-label="Home">
+          <button
+            onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+            className="w-6 h-6 flex items-center justify-center"
+            aria-label="Home"
+          >
             <img src={navHome} alt="Home" className="w-6 h-6" />
           </button>
-          <button className="w-6 h-6 flex items-center justify-center" aria-label="Menu">
+          <button
+            onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+            className="w-6 h-6 flex items-center justify-center"
+            aria-label="Menu"
+          >
             <img src={navMenu} alt="Menu" className="w-6 h-6" />
           </button>
-          <button className="w-6 h-6 flex items-center justify-center" aria-label="Edit">
+          <button
+            onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+            className="w-6 h-6 flex items-center justify-center"
+            aria-label="Edit"
+          >
             <img src={navEdit} alt="Edit" className="w-6 h-6" />
           </button>
-          <button className="w-6 h-6 flex items-center justify-center" aria-label="Favorites">
+          <button
+            onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+            className="w-6 h-6 flex items-center justify-center"
+            aria-label="Favorites"
+          >
             <img src={navFavorites} alt="Favorites" className="w-6 h-6" />
           </button>
-          <button className="w-6 h-6 flex items-center justify-center" aria-label="Profile">
+          <button
+            onClick={() => toast({ title: "서비스 준비중입니다.", duration: 3000 })}
+            className="w-6 h-6 flex items-center justify-center"
+            aria-label="Profile"
+          >
             <img src={navProfile} alt="Profile" className="w-6 h-6" />
           </button>
         </div>
