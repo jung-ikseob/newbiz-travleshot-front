@@ -1,9 +1,11 @@
-import { FC, useState, useCallback } from "react";
+import { FC, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
-import Card2Blue from "@/components/cards/Card2Blue";
-import Card1Japanese from "@/components/cards/Card1Japanese";
-import Card3Geometric from "@/components/cards/Card3Geometric";
+
+// Card images
+import card1 from '../assets/cards/card1.svg';
+import card2 from '../assets/cards/card2.svg';
+import card3 from '../assets/cards/card3.svg';
 
 const CardChoice: FC = () => {
   const navigate = useNavigate();
@@ -11,9 +13,10 @@ const CardChoice: FC = () => {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
-    containScroll: false,
+    containScroll: "trimSnaps",
     slidesToScroll: 1,
     loop: false,
+    dragFree: false,
   });
 
   const onSelect = useCallback(() => {
@@ -21,16 +24,28 @@ const CardChoice: FC = () => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
-  useState(() => {
+  useEffect(() => {
     if (!emblaApi) return;
     onSelect();
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
-  });
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  const cards = [
+    { id: 1, image: card1, alt: "Blue K-ID Card" },
+    { id: 2, image: card2, alt: "Japanese Style K-ID Card" },
+    { id: 3, image: card3, alt: "Geometric K-ID Card" },
+  ];
 
   return (
     <div className="relative w-full min-h-screen bg-[#F1F3F5]">
       <div className="flex flex-col h-screen">
+        {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
           className="absolute top-16 left-3.5 z-10 hover:opacity-70 transition-opacity"
@@ -47,6 +62,7 @@ const CardChoice: FC = () => {
           </svg>
         </button>
 
+        {/* Header */}
         <div className="px-5 pt-28 pb-4">
           <h1
             className="text-xl font-semibold text-[#191F28] leading-[120%]"
@@ -56,26 +72,41 @@ const CardChoice: FC = () => {
           </h1>
         </div>
 
-        <div className="flex-1 flex items-start justify-center pt-12 overflow-hidden">
-          <div className="w-full" ref={emblaRef}>
-            <div className="flex gap-4 pl-[57.5px] pr-[57.5px]">
-              <div className="flex-[0_0_260px] min-w-0">
-                <Card2Blue />
-              </div>
-              <div className="flex-[0_0_260px] min-w-0">
-                <Card1Japanese />
-              </div>
-              <div className="flex-[0_0_260px] min-w-0">
-                <Card3Geometric />
-              </div>
+        {/* Card Carousel */}
+        <div className="flex-1 flex items-center justify-center overflow-hidden">
+          <div className="w-full overflow-hidden" ref={emblaRef}>
+            <div className="flex touch-pan-y">
+              {cards.map((card, index) => (
+                <div
+                  key={card.id}
+                  className="flex-[0_0_auto] min-w-0 pl-[30px] first:pl-[57.5px] last:pr-[57.5px]"
+                  style={{
+                    transform: selectedIndex === index ? 'scale(1)' : 'scale(0.85)',
+                    transition: 'transform 0.3s ease-in-out',
+                    opacity: selectedIndex === index ? 1 : 0.6
+                  }}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    className="w-[260px] h-auto max-h-[500px] object-contain select-none"
+                    draggable="false"
+                    style={{
+                      boxShadow: '0 0 34.667px 0 rgba(31, 33, 34, 0.20)',
+                      borderRadius: '13.87px'
+                    }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
+        {/* Navigation Dots */}
         <div className="flex items-center justify-center gap-3 py-8">
-          {[0, 1, 2].map((index) => (
+          {cards.map((card, index) => (
             <button
-              key={index}
+              key={card.id}
               onClick={() => emblaApi?.scrollTo(index)}
               className="w-[9px] h-[9px] rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#2063D2] focus:ring-offset-2"
               style={{
@@ -86,10 +117,11 @@ const CardChoice: FC = () => {
           ))}
         </div>
 
+        {/* Bottom Button */}
         <div className="bg-white">
           <div className="px-5 py-4">
             <button
-              onClick={() => navigate("/loading")}
+              onClick={() => navigate(`/loading?cardId=${selectedIndex + 1}`)}
               className="w-full h-[54px] bg-[#111] rounded flex items-center justify-center hover:bg-black transition-colors"
             >
               <span

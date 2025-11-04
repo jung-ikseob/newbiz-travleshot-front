@@ -1,7 +1,22 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+
+// Card images
+import card1 from '../assets/cards/card1.svg';
+import card2 from '../assets/cards/card2.svg';
+import card3 from '../assets/cards/card3.svg';
 
 const KidInfo = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const cardId = searchParams.get('cardId') || '1';
+
+  const cardImages: Record<string, string> = {
+    '1': card1,
+    '2': card2,
+    '3': card3,
+  };
+
+  const selectedCardImage = cardImages[cardId] || card1;
 
   return (
     <div className="min-h-screen bg-service-bg font-pretendard">
@@ -47,105 +62,23 @@ const KidInfo = () => {
         </header>
 
         <main className="px-5 space-y-6 mt-6">
-          <div className="relative rounded-2xl shadow-[0_0_40px_rgba(31,33,34,0.2)] overflow-hidden" style={{
-            background: '#152837',
-            aspectRatio: '25/39',
-            maxWidth: '300px',
-            margin: '0 auto'
-          }}>
-            {/* Background landscape scene */}
-            <div className="absolute inset-0">
-              {/* Moon */}
-              <div className="absolute w-[94px] h-[94px] rounded-full bg-[#ECE153]" style={{
-                left: '89px',
-                top: '241px',
-                filter: 'blur(10.76px)'
-              }} />
-              <div className="absolute w-[94px] h-[94px] rounded-full bg-[#ECE153]" style={{
-                left: '89px',
-                top: '241px'
-              }} />
-
-              {/* Mountains */}
-              <svg className="absolute" style={{ left: '-64px', top: '345px', width: '165px', height: '435px' }} viewBox="0 0 300 134" fill="none">
-                <path d="M174.073 73.2724C159.978 80.6204 127.189 87.8155 112.557 90.4946V135.846L371.042 138.142V83.0315C337.251 75.5685 328.096 54.2351 310.392 50.8836C298.262 48.5874 289.358 56.2021 274.579 55.1892C266.204 54.6151 253.496 42.8467 235.012 42.8467C222.593 41.9856 191.691 64.0873 174.073 73.2724Z" fill="#6E5541" stroke="#F6DD79" strokeLinecap="round"/>
-                <path d="M174.073 95.1083C159.978 102.456 127.189 109.651 112.557 112.33V157.682L371.042 159.978V104.867C337.251 97.4044 328.096 76.071 310.392 72.7196C298.262 70.4233 289.358 78.038 274.579 77.0251C266.204 76.451 253.496 64.6827 235.012 64.6827C222.593 63.8216 191.691 85.9232 174.073 95.1083Z" fill="#6E5541" stroke="#F6DD79" strokeLinecap="round"/>
-                <path d="M174.073 110.898C159.978 118.246 127.189 125.441 112.557 128.121V173.472L371.042 175.768V120.658C337.251 113.194 328.096 91.8611 310.392 88.5096C298.262 86.2133 289.358 93.8281 274.579 92.8151C266.204 92.2411 253.496 80.4727 235.012 80.4727C222.593 79.6116 191.691 101.713 174.073 110.898Z" fill="#6E5541" stroke="#F6DD79" strokeLinecap="round"/>
-                <path d="M-25.308 97.7309C-39.8174 100.545 -57.3052 106.231 -64.2354 108.722V132.902H323.712C304.69 128.066 275.937 108.722 261.782 103.446C247.626 98.1702 230.374 108.722 186.139 108.722C141.903 108.722 109.169 78.8264 100.764 74.8698C92.3591 70.9131 78.2037 79.266 70.6836 78.8264C63.1636 78.3867 50.3352 72.6715 43.6999 69.1544C37.0646 65.6374 26.4482 70.9129 18.4858 74.8696C10.5232 78.8265 -7.1711 94.2137 -25.308 97.7309Z" fill="#314A3F" stroke="#F6DD79" strokeLinecap="round"/>
-                <path d="M-25.308 113.006C-39.8174 115.82 -57.3052 121.506 -64.2354 123.997V148.177H323.712C304.69 143.341 275.937 123.997 261.782 118.721C247.626 113.446 230.374 123.997 186.139 123.997C141.903 123.997 109.169 94.1018 100.764 90.1451C92.3591 86.1885 78.2037 94.5414 70.6836 94.1018C63.1636 93.6621 50.3352 87.9469 43.6999 84.4298C37.0646 80.9128 26.4482 86.1883 18.4858 90.145C10.5232 94.1019 -7.1711 109.489 -25.308 113.006Z" fill="#314A3F" stroke="#F6DD79" strokeLinecap="round"/>
-                <path d="M-25.308 134.062C-39.8174 136.876 -57.3052 142.562 -64.2354 145.053V169.233H323.712C304.69 164.397 275.937 145.053 261.782 139.777C247.626 134.501 230.374 145.053 186.139 145.053C141.903 145.053 109.169 115.157 100.764 111.201C92.3591 107.244 78.2037 115.597 70.6836 115.157C63.1636 114.718 50.3352 109.003 43.6999 105.485C37.0646 101.968 26.4482 107.244 18.4858 111.201C10.5232 115.158 -7.1711 130.545 -25.308 134.062Z" fill="#314A3F" stroke="#F6DD79" strokeLinecap="round"/>
-              </svg>
-
-              {/* Rabbit */}
-              <div className="absolute" style={{ left: '29px', top: '351px', width: '67px', height: '62px' }}>
-                <div className="w-[5px] h-[19px] rounded-full bg-[#DEDBCA] absolute" style={{
-                  left: '27px',
-                  top: '1px',
-                  transform: 'rotate(-49.847deg)'
-                }} />
-                <div className="w-[5px] h-[19px] rounded-full bg-[#DEDBCA] absolute" style={{
-                  left: '32px',
-                  top: '-1px',
-                  transform: 'rotate(-49.847deg)'
-                }} />
-              </div>
-
-              {/* Texture overlay */}
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/a0f8af35eeeea32a7a86d5a45a73b1aa7d073d25?width=1112"
-                alt=""
-                className="absolute opacity-20 mix-blend-soft-light"
-                style={{
-                  left: '-110px',
-                  top: '-44px',
-                  width: '556px',
-                  height: '519px',
-                  transform: 'rotate(90deg)'
-                }}
-              />
-            </div>
-
-            {/* Card content */}
-            <div className="relative z-10 p-5 flex flex-col justify-between h-full">
-              <div>
-                <p className="text-[#F6DD79]/60 text-sm mb-12" style={{ fontFamily: 'Helvetica' }}>ZZ1000001</p>
-
-                <h2 className="text-[#F6DD79] text-center text-[26px] leading-[39px] tracking-[0.52px] mb-16" style={{
-                  fontFamily: 'Bodoni 72, Georgia, serif',
-                  fontWeight: 400
-                }}>
-                  GAIMU SAKURA
-                </h2>
-
-                {/* Decorative ornament */}
-                <div className="flex items-center justify-center mb-8">
-                  <div className="h-px w-12 bg-[#F6DD79]" />
-                  <svg className="mx-2" width="34" height="34" viewBox="0 0 34 34" fill="none">
-                    <circle cx="17" cy="8.5" r="4" stroke="#F6DD79" strokeWidth="1"/>
-                    <circle cx="17" cy="25.5" r="4" stroke="#F6DD79" strokeWidth="1"/>
-                    <circle cx="8.5" cy="17" r="4" stroke="#F6DD79" strokeWidth="1"/>
-                    <circle cx="25.5" cy="17" r="4" stroke="#F6DD79" strokeWidth="1"/>
-                    <circle cx="17" cy="17" r="6" stroke="#F6DD79" strokeWidth="1"/>
-                  </svg>
-                  <div className="h-px w-12 bg-[#F6DD79]" />
-                </div>
-              </div>
-
-              <div className="space-y-2 text-center pb-32">
-                <p className="text-[#F6DD79] text-sm" style={{ fontFamily: 'Helvetica' }}>Japan</p>
-                <div className="space-y-0.5">
-                  <p className="text-[#F6DD79] text-base" style={{ fontFamily: 'Helvetica' }}>F / 20.02.2000</p>
-                  <p className="text-[#F6DD79]/60 text-sm" style={{ fontFamily: 'Helvetica' }}>~ 24.03.2035</p>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-start justify-center">
+            <img
+              src={selectedCardImage}
+              alt="Selected K-ID Card"
+              className="w-[300px] h-[468px] object-contain select-none"
+              style={{
+                boxShadow: '0 0 40px 0 rgba(31, 33, 34, 0.20)',
+                borderRadius: '16px'
+              }}
+            />
           </div>
         </main>
 
         <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white rounded-t-[20px] border-t border-[#E5E8EB]">
           <div className="flex justify-center items-center gap-[76px] h-[60px]">
-            <NavItem label="Service" icon="home" onClick={() => navigate('/main')} />
-            <NavItem active label="K-ID" icon="card" onClick={() => navigate('/kid_info')} />
+            <NavItem label="Service" icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
+            <NavItem active label="K-ID" icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
             <NavItem label="My" icon="person" onClick={() => navigate('/my')} />
           </div>
           <div className="h-[21px] bg-white" />

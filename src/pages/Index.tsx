@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
+import mainCloud from '../assets/main/main_cloud.svg';
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const cardId = searchParams.get('cardId') || '1';
 
   return (
     <div className="min-h-screen bg-service-bg font-pretendard">
@@ -111,61 +114,11 @@ const Index = () => {
 
         <main className="px-5 space-y-6">
           <div className="bg-service-weather rounded-[10px] p-5 flex items-center gap-12">
-            <svg width="73" height="87" viewBox="0 0 73 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g filter="url(#filter0_f_444_10)">
-                <path
-                  d="M57.4822 70.5192C57.4822 71.273 47.9494 71.8841 36.1901 71.8841C24.4308 71.8841 14.8979 71.273 14.8979 70.5192C14.8979 69.7654 24.4308 69.1543 36.1901 69.1543C47.9494 69.1543 57.4822 69.7654 57.4822 70.5192Z"
-                  fill="#BAC7CB"
-                />
-              </g>
-              <path
-                d="M70.9494 15.8327C70.9494 24.5768 63.8609 31.6654 55.1168 31.6654C46.3727 31.6654 39.2842 24.5768 39.2842 15.8327C39.2842 7.08853 46.3727 0 55.1168 0C63.8609 0 70.9494 7.08853 70.9494 15.8327Z"
-                fill="url(#paint0_linear_444_10)"
-              />
-              <path
-                d="M70.949 38.5633C70.949 45.0049 65.7175 50.227 59.2617 50.227H16.9708C8.38909 50.227 1.43115 43.2841 1.43115 34.7163C1.43115 26.1509 8.38909 19.2056 16.9708 19.2056C17.7405 19.2056 18.497 19.2646 19.2387 19.3719C22.7481 12.4159 29.9653 7.64258 38.3025 7.64258C48.3907 7.64258 56.842 14.6338 59.0623 24.0264C59.2838 24.9642 59.4438 25.9249 59.5357 26.9036V26.9061C65.8619 27.0502 70.949 32.2134 70.949 38.5633Z"
-                fill="#BAC7CB"
-                fillOpacity="0.4"
-              />
-              <path
-                d="M36.2562 53.3213C33.9326 54.6665 32.3682 57.1774 32.3682 60.0551C32.3682 60.1579 32.3696 60.2601 32.3738 60.3616C32.564 65.25 39.9483 65.25 40.1385 60.3616C40.1427 60.2601 40.1442 60.1579 40.1442 60.0551C40.1449 57.1774 38.5797 54.6665 36.2562 53.3213Z"
-                fill="#2063D2"
-              />
-              <path
-                d="M21.3345 42.585C19.0109 43.9302 17.4458 46.441 17.4458 49.3187C17.4458 49.4216 17.4479 49.5238 17.4522 49.6259C17.6416 54.5136 25.0267 54.5136 25.2168 49.6259C25.2204 49.5238 25.2225 49.4216 25.2225 49.3187C25.2225 46.441 23.6581 43.9302 21.3345 42.585Z"
-                fill="#2063D2"
-              />
-              <path
-                d="M53.2371 46.042C50.9135 47.3872 49.3491 49.8981 49.3491 52.7758C49.3491 52.8786 49.3512 52.9808 49.3548 53.083C49.5449 57.9707 56.9293 57.9707 57.1194 53.083C57.1237 52.9808 57.1251 52.8786 57.1251 52.7758C57.1258 49.8981 55.5614 47.3872 53.2371 46.042Z"
-                fill="#2063D2"
-              />
-              <defs>
-                <filter
-                  id="filter0_f_444_10"
-                  x="-0.000207901"
-                  y="54.2561"
-                  width="72.3808"
-                  height="32.5258"
-                  filterUnits="userSpaceOnUse"
-                  colorInterpolationFilters="sRGB"
-                >
-                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-                  <feGaussianBlur stdDeviation="7.44908" result="effect1_foregroundBlur_444_10" />
-                </filter>
-                <linearGradient
-                  id="paint0_linear_444_10"
-                  x1="61.4946"
-                  y1="1.46583"
-                  x2="48.1555"
-                  y2="31.6619"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#FFD88B" />
-                  <stop offset="1" stopColor="#FFA900" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <img
+              src={mainCloud}
+              alt="Weather"
+              className="w-[73px] h-[87px]"
+            />
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-1">
                 <img
@@ -200,7 +153,7 @@ const Index = () => {
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/545235c7614023140ed9f038508e91247b35bc8a?width=72"
                   label="쇼핑"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  onClick={() => setIsModalOpen(true)}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/1c3957d753e57d32306540d4137da96165b018e2?width=70"
@@ -242,7 +195,7 @@ const Index = () => {
           <div className="space-y-3.5">
             <h2 className="text-[#191F28] text-base font-medium">간편한 결제를 위해 가입해보세요</h2>
             <button
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
               className="w-full h-[54px] bg-service-blue rounded text-white text-base font-medium hover:bg-blue-700 transition-colors"
             >
               서비스 가입
@@ -273,8 +226,8 @@ const Index = () => {
 
         <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white rounded-t-[20px] border-t border-[#E5E8EB]">
           <div className="flex justify-center items-center gap-[76px] h-[60px]">
-            <NavItem active label="Service" icon="home" onClick={() => navigate("/main")} />
-            <NavItem label="K-ID" icon="card" onClick={() => navigate("/kid_info")} />
+            <NavItem active label="Service" icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
+            <NavItem label="K-ID" icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
             <NavItem label="My" icon="person" onClick={() => navigate("/my")} />
           </div>
           <div className="h-[21px] bg-white"></div>

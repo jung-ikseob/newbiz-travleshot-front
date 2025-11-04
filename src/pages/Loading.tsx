@@ -1,16 +1,18 @@
 import { FC, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const Loading: FC = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const cardId = searchParams.get('cardId') || '1';
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/issuance');
+      navigate(`/issuance?cardId=${cardId}`);
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, [navigate, cardId]);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#F1F3F5] px-5">
       <div className="flex flex-col items-center gap-12">
