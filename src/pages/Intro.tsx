@@ -15,11 +15,11 @@ const Intro: FC = () => {
     navigate('/start');
   };
 
-  // useEffect(() => {
-  //   // 3초 후 start 페이지로 이동
-  //   const timer = setTimeout(() => navigate('/start'), 3000);
-  //   return () => clearTimeout(timer);
-  // }, [navigate]);
+  useEffect(() => {
+    // 3초 후 start 페이지로 이동
+    const timer = setTimeout(() => navigate('/start'), 3000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   useEffect(() => {
     const updateScale = () => {

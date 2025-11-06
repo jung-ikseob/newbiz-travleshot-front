@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LanguageSettings from './LanguageSettings';
 
@@ -10,53 +10,27 @@ import backgroundDecorative from '../assets/start/background-decorative.svg';
 
 const Start: FC = () => {
   const navigate = useNavigate();
-  const [scale, setScale] = useState(1);
   const [showLanguageSettings, setShowLanguageSettings] = useState(false);
 
-  useEffect(() => {
-    const updateScale = () => {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const designWidth = 375;
-      const designHeight = 812;
-
-      const scaleByWidth = viewportWidth / designWidth;
-      const scaleByHeight = viewportHeight / designHeight;
-      setScale(Math.min(scaleByWidth, scaleByHeight, 1));
-    };
-
-    updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
-  }, []);
-
   return (
-    <div
-      className="start w-full h-screen flex items-center justify-center overflow-hidden relative"
-      style={{
-        background: 'linear-gradient(180deg, #001c4b 0%, #003284 58.766%, #2063d2 100%)'
-      }}
-    >
-      {/* Background decorative elements - SVG */}
-      <div className="absolute inset-0 overflow-hidden">
-        <img
-          src={backgroundDecorative}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
+    <div className="start w-full h-screen overflow-hidden relative bg-white">
       <div
-        className="relative z-10 flex flex-col h-full"
+        className="relative h-full w-full mx-auto overflow-hidden"
         style={{
-          width: '375px',
-          height: '812px',
-          transform: `scale(${scale})`,
-          transformOrigin: 'center center',
-          maxWidth: '100vw',
-          maxHeight: '100vh'
+          maxWidth: '375px',
+          background: 'linear-gradient(180deg, #001c4b 0%, #003284 58.766%, #2063d2 100%)'
         }}
       >
+        {/* Background decorative elements - SVG */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src={backgroundDecorative}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 flex flex-col h-full w-full">
         {/* Content Area */}
         <div className="flex-1 flex flex-col items-center pt-[175px] pb-4">
           {/* Logo and Tagline */}
@@ -85,8 +59,9 @@ const Start: FC = () => {
         <div
           className="relative left-1/2 -translate-x-1/2 mt-[90px]"
           style={{
-            width: '455.634px',
-            height: '127.602px'
+            width: 'min(455.634px, 100%)',
+            height: '127.602px',
+            maxWidth: '100%'
           }}
         >
           <img
@@ -162,12 +137,13 @@ const Start: FC = () => {
           {/* Home Indicator */}
           <div className="h-[21px]" />
         </div>
-      </div>
+        </div>
 
-      <LanguageSettings
-        isOpen={showLanguageSettings}
-        onClose={() => setShowLanguageSettings(false)}
-      />
+        <LanguageSettings
+          isOpen={showLanguageSettings}
+          onClose={() => setShowLanguageSettings(false)}
+        />
+      </div>
     </div>
   );
 };
