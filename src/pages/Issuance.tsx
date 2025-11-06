@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Card images
 import card1 from '../assets/cards/card1.svg';
@@ -10,6 +11,7 @@ const Issuance: FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const cardId = searchParams.get('cardId') || '1';
+  const { t } = useTranslation();
 
   const cardImages: Record<string, string> = {
     '1': card1,
@@ -38,7 +40,7 @@ const Issuance: FC = () => {
               className="text-xl font-semibold text-[#191F28] leading-[120%]"
               style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
             >
-              K-ID 발급이 완료 되었습니다!
+              {t.issuance.title}
             </h1>
           </div>
 
@@ -65,7 +67,7 @@ const Issuance: FC = () => {
                     className="text-[#191F28] text-base font-semibold leading-[150%]"
                     style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
                   >
-                    서비스 보러가기
+                    {t.issuance.goToService}
                   </span>
                 </button>
                 <button
@@ -76,7 +78,7 @@ const Issuance: FC = () => {
                     className="text-white text-base font-semibold leading-[150%]"
                     style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
                   >
-                    출입국신고서 작성
+                    {t.issuance.immigrationForm}
                   </span>
                 </button>
               </div>

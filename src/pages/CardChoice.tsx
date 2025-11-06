@@ -1,6 +1,7 @@
 import { FC, useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Card images
 import card1 from '../assets/cards/card1.svg';
@@ -9,6 +10,7 @@ import card3 from '../assets/cards/card3.svg';
 
 const CardChoice: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -69,7 +71,7 @@ const CardChoice: FC = () => {
               className="text-xl font-semibold text-[#191F28] leading-[120%]"
               style={{ fontFamily: "Pretendard, sans-serif" }}
             >
-              원하는 카드 디자인을 선택해주세요
+              {t.cardChoice.title}
             </h1>
           </div>
 
@@ -129,7 +131,7 @@ const CardChoice: FC = () => {
                   className="text-white text-base font-semibold leading-[150%]"
                   style={{ fontFamily: "Pretendard, sans-serif" }}
                 >
-                  다음
+                  {t.cardChoice.next}
                 </span>
               </button>
             </div>

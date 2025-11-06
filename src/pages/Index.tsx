@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
+import { useTranslation } from "@/hooks/useTranslation";
 import mainCloud from '../assets/main/main_cloud.svg';
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const cardId = searchParams.get('cardId') || '1';
 
   const handleOliveYoungSignup = () => {
     if (!isAgreed) {
       toast({
-        title: "개인정보 제공 동의해주세요.",
+        title: t.main.agreeFirst,
         duration: 3000
       });
       return;
@@ -25,7 +27,7 @@ const Index = () => {
     <div className="min-h-screen bg-service-bg font-pretendard">
       <div className="max-w-md mx-auto bg-service-bg relative pb-20">
         <header className="px-5 py-4 flex justify-between items-center bg-service-bg sticky top-0 z-10">
-          <h1 className="text-[#191F28] text-[26px] font-semibold">Service</h1>
+          <h1 className="text-[#191F28] text-[26px] font-semibold">{t.main.service}</h1>
           <div className="flex items-center gap-1.5 text-sm">
             <div className="flex items-center gap-1">
               <span className="text-[#191F28]">1 KRW</span>
@@ -138,20 +140,20 @@ const Index = () => {
                   alt="Location"
                   className="w-4 h-4"
                 />
-                <span className="text-[#191F28]/80 text-sm">South Korea</span>
+                <span className="text-[#191F28]/80 text-sm">{t.main.location}</span>
               </div>
               <div className="text-[#191F28] text-[32px] font-semibold leading-none">24.0°</div>
               <a href="#" className="text-service-blue text-xs font-medium">
-                See more
+                {t.main.seeMore}
               </a>
             </div>
           </div>
 
           <div className="space-y-3.5">
             <div className="flex justify-between items-center">
-              <h2 className="text-[#191F28] text-base font-medium">서비스</h2>
+              <h2 className="text-[#191F28] text-base font-medium">{t.main.services}</h2>
               <a href="#" className="text-service-blue text-xs font-medium">
-                See more
+                {t.main.seeMore}
               </a>
             </div>
 
@@ -159,78 +161,78 @@ const Index = () => {
               <div className="grid grid-cols-4 gap-6">
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/3033b9ee04f9e846ec3648efbc95692f245e2ffb?width=70"
-                  label="지도"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.map}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/545235c7614023140ed9f038508e91247b35bc8a?width=72"
-                  label="쇼핑"
+                  label={t.main.shopping}
                   onClick={() => setIsModalOpen(true)}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/1c3957d753e57d32306540d4137da96165b018e2?width=70"
-                  label="식당"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.restaurant}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/df1ff687f79c50b5c5227c9e699266ddc506979d?width=70"
-                  label="액티비티"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.activity}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
               </div>
 
               <div className="grid grid-cols-4 gap-6">
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/360848b2f13340fd3b38c505f813619e2bffa10e?width=70"
-                  label="모빌리티"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.mobility}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/f72b0b9320b9e758c2ddd9376210a8c2337624e2?width=70"
-                  label="선불카드"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.prepaidCard}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/37856e1ed01b48885a0ffff096c617115175fddc?width=70"
-                  label="카드"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.card}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
                   icon="https://api.builder.io/api/v1/image/assets/TEMP/6f8e8f5110d5e942b2b8cb3caa61cc4ccaf5303f?width=70"
-                  label="번역"
-                  onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                  label={t.main.translation}
+                  onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
               </div>
             </div>
           </div>
 
           <div className="space-y-3.5">
-            <h2 className="text-[#191F28] text-base font-medium">간편한 결제를 위해 가입해보세요</h2>
+            <h2 className="text-[#191F28] text-base font-medium">{t.main.simplePayment}</h2>
             <button
-              onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+              onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
               className="w-full h-[54px] bg-service-blue rounded text-white text-base font-medium hover:bg-blue-700 transition-colors"
             >
-              서비스 가입
+              {t.main.serviceSignup}
             </button>
           </div>
 
           <div className="space-y-3.5">
-            <h2 className="text-[#191F28] text-base font-medium">K-ID로 간편하게 입력해보세요</h2>
+            <h2 className="text-[#191F28] text-base font-medium">{t.main.useKid}</h2>
             <div className="grid grid-cols-2 gap-4">
               <FormCard
-                title="출입국 신고서 작성하기"
-                subtitle="immigration form"
+                title={t.main.immigrationForm}
+                subtitle={t.main.immigrationFormSub}
                 bgColor="#FDEEEA"
                 iconColor="#F66F47"
                 onClick={() => window.open("https://www.e-arrivalcard.go.kr/portal/main/index.do", "_blank")}
               />
               <FormCard
-                title="모바일 세관신청서 작성하기"
-                subtitle="mobile customs form"
+                title={t.main.customsForm}
+                subtitle={t.main.customsFormSub}
                 bgColor="#E4F3F4"
                 iconColor="#4CA6A8"
                 isMobile
-                onClick={() => toast({ title: "준비중인 서비스입니다.", duration: 3000 })}
+                onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
               />
             </div>
           </div>
@@ -238,9 +240,9 @@ const Index = () => {
 
         <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white rounded-t-[20px] border-t border-[#E5E8EB]">
           <div className="flex justify-center items-center gap-[76px] h-[60px]">
-            <NavItem active label="Service" icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
-            <NavItem label="K-ID" icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
-            <NavItem label="My" icon="person" onClick={() => navigate("/my")} />
+            <NavItem active label={t.nav.service} icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
+            <NavItem label={t.nav.kid} icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
+            <NavItem label={t.nav.my} icon="person" onClick={() => navigate("/my")} />
           </div>
           <div className="h-[21px] bg-white"></div>
         </nav>
@@ -282,16 +284,15 @@ const Index = () => {
                     <div className="flex flex-col gap-5 self-stretch">
                       <div className="flex flex-col gap-1 self-stretch">
                         <h2 className="text-[#191F28] font-pretendard text-[20px] font-semibold leading-[150%]">
-                          올리브영
+                          {t.main.oliveYoung}
                         </h2>
                         <p className="text-[rgba(107,117,131,0.6)] font-pretendard text-[14px] font-normal leading-[120%]">
-                          Olive Young (K - Beauty)
+                          {t.main.oliveYoungSub}
                         </p>
                       </div>
 
                       <p className="text-[#191F28] font-pretendard text-[14px] font-normal leading-[150%] self-stretch">
-                        올리브영 서비스에 대한 소개 안내 제공. 온라인 쇼핑을 통해 한국 현지 숙소로 당일 배송 가능, 가입
-                        후 특별한 가입 혜택 추가 제공 안내. 제휴사별 설명 노출
+                        {t.main.oliveYoungDesc}
                       </p>
                     </div>
 
@@ -325,7 +326,7 @@ const Index = () => {
                       <span className={`font-pretendard text-[14px] font-normal ${
                         isAgreed ? 'text-[#191F28]' : 'text-[rgba(25,31,40,0.6)]'
                       }`}>
-                        (필수)개인정보 제공 동의
+                        {t.main.agreeToProvideInfo}
                       </span>
                     </button>
                   </div>
@@ -339,7 +340,7 @@ const Index = () => {
                     className="w-full h-[54px] px-2.5 py-3.5 bg-[#2063D2] rounded flex justify-center items-center hover:bg-blue-700 transition-colors self-stretch"
                   >
                     <span className="text-white text-center font-pretendard text-base font-semibold leading-[150%]">
-                      서비스 가입하기
+                      {t.main.signupService}
                     </span>
                   </button>
                 </div>

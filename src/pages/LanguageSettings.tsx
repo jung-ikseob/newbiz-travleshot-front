@@ -1,5 +1,6 @@
 import { X, Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface LanguageSettingsProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ type Language = 'korean' | 'japanese' | 'english';
 const LANGUAGE_STORAGE_KEY = 'preferred_language';
 
 const LanguageSettings = ({ isOpen, onClose }: LanguageSettingsProps) => {
+  const { t } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
     return (saved as Language) || 'korean';
@@ -40,10 +42,10 @@ const LanguageSettings = ({ isOpen, onClose }: LanguageSettingsProps) => {
         <div className="p-5 flex flex-col gap-1">
           <div className="flex items-start justify-between gap-1">
             <div className="flex flex-col gap-1">
-              <h2 className="text-xl font-semibold text-[#191F28] leading-[150%]">언어 변경</h2>
-              <p className="text-sm text-[#6B7583]/60 leading-[150%]">원하는 언어로 변경해주세요</p>
+              <h2 className="text-xl font-semibold text-[#191F28] leading-[150%]">{t.languageSettings.title}</h2>
+              <p className="text-sm text-[#6B7583]/60 leading-[150%]">{t.languageSettings.description}</p>
             </div>
-            <button 
+            <button
               onClick={onClose}
               className="text-[#6B7583] hover:text-[#191F28] transition-colors"
             >

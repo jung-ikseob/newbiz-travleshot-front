@@ -1,28 +1,30 @@
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, Edit2 } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
 import AdditionalServices from './AdditionalServices';
 import LanguageSettings from './LanguageSettings';
 
 const My = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [showAdditionalServices, setShowAdditionalServices] = useState(false);
   const [showLanguageSettings, setShowLanguageSettings] = useState(false);
 
   const menuItems = [
-    '포인트',
-    '쿠폰',
-    '전자영수증',
-    '부가서비스',
-    '문의하기',
-    '공지 FAQ',
-    '언어 설정'
+    { key: 'points', label: t.my.points },
+    { key: 'coupons', label: t.my.coupons },
+    { key: 'receipt', label: t.my.receipt },
+    { key: 'additionalServices', label: t.my.additionalServices },
+    { key: 'inquiry', label: t.my.inquiry },
+    { key: 'noticeFaq', label: t.my.noticeFaq },
+    { key: 'languageSettings', label: t.my.languageSettings }
   ];
 
-  const handleMenuClick = (item: string) => {
-    if (item === '부가서비스') {
+  const handleMenuClick = (key: string) => {
+    if (key === 'additionalServices') {
       setShowAdditionalServices(true);
-    } else if (item === '언어 설정') {
+    } else if (key === 'languageSettings') {
       setShowLanguageSettings(true);
     }
   };
@@ -39,7 +41,7 @@ const My = () => {
       />
       <div className="max-w-md mx-auto bg-service-bg pb-20">
         <header className="px-5 py-4 flex justify-between items-center bg-service-bg sticky top-0 z-10">
-          <h1 className="text-[#191F28] text-[26px] font-semibold">My</h1>
+          <h1 className="text-[#191F28] text-[26px] font-semibold">{t.my.title}</h1>
           <div className="flex items-center gap-1.5 text-sm">
             <div className="flex items-center gap-1">
               <span className="text-[#191F28]">1 KRW</span>
@@ -81,7 +83,7 @@ const My = () => {
         <main className="px-5 space-y-6 mt-6">
           <div className="bg-[#F5F6F8] rounded-xl p-5 flex items-center justify-between">
             <div>
-              <p className="text-[#6B7583] text-xs mb-2">0|메일</p>
+              <p className="text-[#6B7583] text-xs mb-2">{t.my.email}</p>
               <p className="text-[#191F28] text-lg font-semibold">test@test.com</p>
             </div>
             <Edit2 size={24} className="text-[#6B7583]" />
@@ -90,11 +92,11 @@ const My = () => {
           <div className="space-y-0">
             {menuItems.map((item) => (
               <button
-                key={item}
-                onClick={() => handleMenuClick(item)}
+                key={item.key}
+                onClick={() => handleMenuClick(item.key)}
                 className="w-full flex items-center justify-between py-4 border-b border-[#E5E8EB] last:border-b-0 hover:bg-[#F9F9F9] transition-colors"
               >
-                <span className="text-[#191F28] text-base font-normal">{item}</span>
+                <span className="text-[#191F28] text-base font-normal">{item.label}</span>
                 <ChevronRight size={24} className="text-[#6B7583]" />
               </button>
             ))}
@@ -103,20 +105,20 @@ const My = () => {
 
         <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white rounded-t-[20px] border-t border-[#E5E8EB]">
           <div className="flex justify-center items-center gap-[76px] h-[60px]">
-            <NavItem 
-              label="Service" 
-              icon="home" 
+            <NavItem
+              label={t.nav.service}
+              icon="home"
               onClick={() => navigate('/main')}
             />
-            <NavItem 
-              label="K-ID" 
-              icon="card" 
+            <NavItem
+              label={t.nav.kid}
+              icon="card"
               onClick={() => navigate('/kid_info')}
             />
-            <NavItem 
-              active 
-              label="My" 
-              icon="person" 
+            <NavItem
+              active
+              label={t.nav.my}
+              icon="person"
               onClick={() => navigate('/my')}
             />
           </div>

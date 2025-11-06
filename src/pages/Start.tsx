@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 import LanguageSettings from './LanguageSettings';
 
 // Local image assets
@@ -10,6 +11,7 @@ import backgroundDecorative from '../assets/start/background-decorative.svg';
 
 const Start: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [showLanguageSettings, setShowLanguageSettings] = useState(false);
 
   return (
@@ -50,7 +52,7 @@ const Start: FC = () => {
               lineHeight: '1.5'
             }}
           >
-            Travel, lighter and safer
+            {t.start.tagline}
           </p>
         </div>
 
@@ -84,7 +86,7 @@ const Start: FC = () => {
               textUnderlinePosition: 'from-font'
             }}
           >
-            언어 변경
+            {t.start.languageChange}
           </p>
         </div>
 
@@ -103,7 +105,7 @@ const Start: FC = () => {
                   fontWeight: 500
                 }}
               >
-                K-ID가 이미 있어요!
+                {t.start.alreadyHaveKid}
               </p>
               <div className="w-6 h-6">
                 <img
@@ -128,7 +130,7 @@ const Start: FC = () => {
                   fontWeight: 600
                 }}
               >
-                시작하기
+                {t.start.getStarted}
               </span>
             </button>
           </div>

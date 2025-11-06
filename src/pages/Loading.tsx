@@ -1,10 +1,12 @@
 import { FC, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Loading: FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const cardId = searchParams.get('cardId') || '1';
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -54,13 +56,13 @@ const Loading: FC = () => {
         </div>
 
         <div className="text-center">
-          <p 
+          <p
             className="text-xl leading-[150%]"
             style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
           >
-            <span className="text-[#2063D2] font-bold">K-ID를 발행중에 있습니다</span>
+            <span className="text-[#2063D2] font-bold">{t.loading.issuing}</span>
             <br />
-            <span className="text-[#191F28] font-normal">잠시만 기다려주세요!</span>
+            <span className="text-[#191F28] font-normal">{t.loading.pleaseWait}</span>
           </p>
         </div>
       </div>

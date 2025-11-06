@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Local image assets
 import chevron from '../assets/info/chevron.svg';
@@ -7,6 +8,7 @@ import infoGraphic from '../assets/info/info.svg';
 
 const Info: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNext = () => {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
@@ -38,11 +40,15 @@ const Info: FC = () => {
         {/* Header Section */}
         <div className="absolute left-[54.5px] top-[124px] w-[266px] flex flex-col gap-[20px] items-start text-center">
           <h1 className="font-pretendard text-[30px] leading-[36px] font-bold text-[#191f28] text-center w-full">
-            K-ID란
+            {t.info.title}
           </h1>
           <p className="font-pretendard text-[16px] leading-[24px] font-bold text-[#2063d2] text-center w-full">
-            여권을 대신하여 사용할 수 있는<br />
-            디지털 신분증으로 사용할 수 있습니다
+            {t.info.description.split('\n').map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < t.info.description.split('\n').length - 1 && <br />}
+              </span>
+            ))}
           </p>
         </div>
 
@@ -64,8 +70,12 @@ const Info: FC = () => {
           }}
         >
           <p className="font-pretendard text-[16px] leading-[24px] font-normal text-[#191f28] text-center px-[50px]">
-            K-ID를 활용하여, 한국의 다양한<br />
-            디지털 서비스에 가입하고 활용해 보세요
+            {t.info.detailDescription.split('\n').map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < t.info.detailDescription.split('\n').length - 1 && <br />}
+              </span>
+            ))}
           </p>
         </div>
 
@@ -74,7 +84,7 @@ const Info: FC = () => {
           {/* Instruction text */}
           <div className="w-full px-[20px] py-[6px]">
             <p className="font-pretendard text-[16px] leading-[24px] font-medium text-[#6b7583] text-center">
-              여권을 준비해주세요
+              {t.info.preparePassport}
             </p>
           </div>
 
@@ -85,7 +95,7 @@ const Info: FC = () => {
               className="w-full h-[54px] bg-[#2063d2] rounded-[4px] flex items-center justify-center cursor-pointer hover:bg-[#1a52b8] transition-colors active:scale-[0.98]"
             >
               <span className="font-pretendard text-[16px] font-bold text-white">
-                다음
+                {t.info.next}
               </span>
             </button>
           </div>

@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import { userSchema } from '@/lib/validation';
 import { toast } from '@/hooks/use-toast';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const Join: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   // local visual toast removed in favor of global toast
   const [errors, setErrors] = useState({ email: false, passportNumber: false, name: false, birthDate: false });
   const [formData, setFormData] = useState({
@@ -37,13 +39,13 @@ const Join: FC = () => {
         if (key) newErrors[key] = true;
       });
       setErrors(newErrors);
-      toast({ title: '정보를 입력해주세요', duration: 3000 });
+      toast({ title: t.join.checkInfo, duration: 3000 });
       return;
     }
 
     // also ensure country selected (previous behavior)
     if (!formData.country) {
-      toast({ title: '정보를 입력해주세요', duration: 3000 });
+      toast({ title: t.join.checkInfo, duration: 3000 });
       return;
     }
 
@@ -67,32 +69,32 @@ const Join: FC = () => {
         <div className="flex-1 px-5 pt-28 pb-4 overflow-y-auto">
           <div className="max-w-md mx-auto">
             <div className="mb-10">
-              <h1 
+              <h1
                 className="text-xl font-semibold text-[#191F28] leading-[120%]"
                 style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
               >
-                여권정보를 확인해주세요
+                {t.join.title}
               </h1>
             </div>
 
             <div className="flex flex-col gap-7">
               <div className="flex flex-col">
                 {formData.country && (
-                  <label 
+                  <label
                     htmlFor="country"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    국가
+                    {t.join.country}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="country"
-                    aria-label="국가"
+                    aria-label={t.join.country}
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    placeholder={!formData.country ? "국가" : ""}
+                    placeholder={!formData.country ? t.join.country : ""}
                     className="border-0 border-b border-[rgba(107,117,131,0.2)] rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -101,21 +103,21 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.passportNumber && (
-                  <label 
+                  <label
                     htmlFor="passportNumber"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    여권번호
+                    {t.join.passportNumber}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="passportNumber"
-                    aria-label="여권번호"
+                    aria-label={t.join.passportNumber}
                     value={formData.passportNumber}
                     onChange={(e) => { setFormData({ ...formData, passportNumber: e.target.value }); setErrors(prev => ({ ...prev, passportNumber: false })); }}
-                    placeholder={!formData.passportNumber ? "여권번호" : ""}
+                    placeholder={!formData.passportNumber ? t.join.passportNumber : ""}
                     className={`border-0 border-b ${errors.passportNumber ? 'border-[#DD3A3A]' : 'border-[rgba(107,117,131,0.2)]'} rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0`}
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -124,21 +126,21 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.name && (
-                  <label 
+                  <label
                     htmlFor="name"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    이름
+                    {t.join.name}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="name"
-                    aria-label="이름"
+                    aria-label={t.join.name}
                     value={formData.name}
                     onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors(prev => ({ ...prev, name: false })); }}
-                    placeholder={!formData.name ? "이름" : ""}
+                    placeholder={!formData.name ? t.join.name : ""}
                     className={`border-0 border-b ${errors.name ? 'border-[#DD3A3A]' : 'border-[rgba(107,117,131,0.2)]'} rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0`}
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -147,21 +149,21 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.gender && (
-                  <label 
+                  <label
                     htmlFor="gender"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    성별
+                    {t.join.gender}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="gender"
-                    aria-label="성별"
+                    aria-label={t.join.gender}
                     value={formData.gender}
                     onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                    placeholder={!formData.gender ? "성별" : ""}
+                    placeholder={!formData.gender ? t.join.gender : ""}
                     className="border-0 border-b border-[rgba(107,117,131,0.2)] rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -170,22 +172,22 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.birthDate && (
-                  <label 
+                  <label
                     htmlFor="birthDate"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    생년월일
+                    {t.join.birthDate}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="birthDate"
                     type="date"
-                    aria-label="생년월일"
+                    aria-label={t.join.birthDate}
                     value={formData.birthDate}
                     onChange={(e) => { setFormData({ ...formData, birthDate: e.target.value }); setErrors(prev => ({ ...prev, birthDate: false })); }}
-                    placeholder={!formData.birthDate ? "생년월일" : ""}
+                    placeholder={!formData.birthDate ? t.join.birthDate : ""}
                     className={`border-0 border-b ${errors.birthDate ? 'border-[#DD3A3A]' : 'border-[rgba(107,117,131,0.2)]'} rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0`}
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -194,22 +196,22 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.expiryDate && (
-                  <label 
+                  <label
                     htmlFor="expiryDate"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    여권 만료일
+                    {t.join.expiryDate}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="expiryDate"
                     type="date"
-                    aria-label="여권 만료일"
+                    aria-label={t.join.expiryDate}
                     value={formData.expiryDate}
                     onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })}
-                    placeholder={!formData.expiryDate ? "여권 만료일" : ""}
+                    placeholder={!formData.expiryDate ? t.join.expiryDate : ""}
                     className="border-0 border-b border-[rgba(107,117,131,0.2)] rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -218,22 +220,22 @@ const Join: FC = () => {
 
               <div className="flex flex-col">
                 {formData.email && (
-                  <label 
+                  <label
                     htmlFor="email"
                     className="text-xs text-[#6B7583] leading-[120%] mb-1"
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   >
-                    이메일
+                    {t.join.email}
                   </label>
                 )}
                 <div className="py-2.5">
                   <Input
                     id="email"
-                    aria-label="이메일"
+                    aria-label={t.join.email}
                     type="email"
                     value={formData.email}
                     onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors(prev => ({ ...prev, email: false })); }}
-                    placeholder={!formData.email ? "이메일" : ""}
+                    placeholder={!formData.email ? t.join.email : ""}
                     className={`border-0 border-b ${errors.email ? 'border-[#DD3A3A]' : 'border-[rgba(107,117,131,0.2)]'} rounded-none px-0 py-0 h-auto text-base text-[#191F28] focus-visible:ring-0 focus-visible:ring-offset-0`}
                     style={{ fontFamily: 'Pretendard-Regular, sans-serif' }}
                   />
@@ -249,11 +251,11 @@ const Join: FC = () => {
               onClick={handleNext}
               className="w-full h-[54px] bg-[#2063D2] rounded flex items-center justify-center hover:bg-[#1a52b8] transition-colors"
             >
-              <span 
+              <span
                 className="text-white text-base font-semibold leading-[150%]"
                 style={{ fontFamily: 'Pretendard-SemiBold, sans-serif' }}
               >
-                다음
+                {t.join.next}
               </span>
             </button>
           </div>

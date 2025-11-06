@@ -1,5 +1,6 @@
 import { FC, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Local image assets
 import ocr1 from '../assets/ocr/ocr_1.png';
@@ -7,6 +8,7 @@ import ocr2 from '../assets/ocr/ocr_2.svg';
 
 const Ocr: FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -76,7 +78,7 @@ const Ocr: FC = () => {
               <img src={ocr1} alt="" className="w-full h-full object-contain" />
             </div>
             <p className="font-['Pretendard-Regular',sans-serif] text-[16px] leading-[1.5] text-white text-center capitalize whitespace-nowrap">
-              여권을 화면 안에 맞춰 촬영해주세요.
+              {t.ocr.scanPassport}
             </p>
           </div>
 
@@ -93,7 +95,7 @@ const Ocr: FC = () => {
               <img src={ocr2} alt="" className="w-full h-full object-contain" />
             </button>
             <p className="font-['Pretendard-Regular',sans-serif] text-[16px] leading-[1.5] text-white text-center capitalize whitespace-nowrap">
-              빛 반사나 그림자가 없도록 주의해주세요.
+              {t.ocr.alignPassport}
             </p>
           </div>
         </div>

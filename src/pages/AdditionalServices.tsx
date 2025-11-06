@@ -1,4 +1,5 @@
 import { X } from 'lucide-react';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface AdditionalServicesProps {
   isOpen: boolean;
@@ -6,22 +7,24 @@ interface AdditionalServicesProps {
 }
 
 const AdditionalServices = ({ isOpen, onClose }: AdditionalServicesProps) => {
+  const { t } = useTranslation();
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-end">
       <div className="w-full max-w-md mx-auto bg-white rounded-t-3xl p-6 animate-slide-up">
         <div className="flex justify-between items-start mb-2">
-          <h2 className="text-2xl font-semibold text-[#191F28]">부가서비스</h2>
-          <button 
+          <h2 className="text-2xl font-semibold text-[#191F28]">{t.additionalServices.title}</h2>
+          <button
             onClick={onClose}
             className="text-[#6B7583] hover:text-[#191F28] transition-colors"
           >
             <X size={32} />
           </button>
         </div>
-        
-        <p className="text-[#999999] text-sm mb-8">K-ID활용하여 부가서비스로 이동해보세요</p>
+
+        <p className="text-[#999999] text-sm mb-8">{t.additionalServices.description}</p>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-[#F5F6F8] rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-[#E9EBED] transition-colors">
@@ -31,8 +34,15 @@ const AdditionalServices = ({ isOpen, onClose }: AdditionalServicesProps) => {
                 <path d="M14 12H34M14 20H34M14 28H34M14 36H28" stroke="#FF6B4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <h3 className="text-sm font-semibold text-[#191F28] mb-2">출입국 신고서<br />작성하기</h3>
-            <p className="text-xs text-[#999999]">immigration form</p>
+            <h3 className="text-sm font-semibold text-[#191F28] mb-2">
+              {t.additionalServices.immigrationFormTitle.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < t.additionalServices.immigrationFormTitle.split('\n').length - 1 && <br />}
+                </span>
+              ))}
+            </h3>
+            <p className="text-xs text-[#999999]">{t.main.immigrationFormSub}</p>
           </div>
 
           <div className="bg-[#E8F8F5] rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-[#D0F0E8] transition-colors">
@@ -42,8 +52,15 @@ const AdditionalServices = ({ isOpen, onClose }: AdditionalServicesProps) => {
                 <path d="M16 8H32M16 36H32M24 40C24.5523 40 25 39.5523 25 39C25 38.4477 24.5523 38 24 38C23.4477 38 23 38.4477 23 39C23 39.5523 23.4477 40 24 40Z" stroke="#17B26A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <h3 className="text-sm font-semibold text-[#191F28] mb-2">모바일 세관신청서<br />작성하기</h3>
-            <p className="text-xs text-[#999999]">mobile customs form</p>
+            <h3 className="text-sm font-semibold text-[#191F28] mb-2">
+              {t.additionalServices.customsFormTitle.split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}
+                  {i < t.additionalServices.customsFormTitle.split('\n').length - 1 && <br />}
+                </span>
+              ))}
+            </h3>
+            <p className="text-xs text-[#999999]">{t.main.customsFormSub}</p>
           </div>
         </div>
       </div>

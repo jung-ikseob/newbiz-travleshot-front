@@ -1,4 +1,5 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 // Card images
 import card1 from '../assets/cards/card1.svg';
@@ -7,6 +8,7 @@ import card3 from '../assets/cards/card3.svg';
 
 const KidInfo = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const cardId = searchParams.get('cardId') || '1';
 
@@ -77,9 +79,9 @@ const KidInfo = () => {
 
         <nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white rounded-t-[20px] border-t border-[#E5E8EB]">
           <div className="flex justify-center items-center gap-[76px] h-[60px]">
-            <NavItem label="Service" icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
-            <NavItem active label="K-ID" icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
-            <NavItem label="My" icon="person" onClick={() => navigate('/my')} />
+            <NavItem label={t.nav.service} icon="home" onClick={() => navigate(`/main?cardId=${cardId}`)} />
+            <NavItem active label={t.nav.kid} icon="card" onClick={() => navigate(`/kid_info?cardId=${cardId}`)} />
+            <NavItem label={t.nav.my} icon="person" onClick={() => navigate('/my')} />
           </div>
           <div className="h-[21px] bg-white" />
         </nav>
