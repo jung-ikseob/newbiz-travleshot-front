@@ -20,6 +20,8 @@ import CardChoice from "./pages/CardChoice";
 import OliveHome from "./pages/OliveHome";
 import OliveLogin from "./pages/OliveLogin";
 import OliveLoginKid from "./pages/OliveLoginKid";
+import OliveLoginComplete from "./pages/OliveLoginComplete";
+import OliveLoginCart from "./pages/OliveLoginCart";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/olive_home" element={<OliveHome />} />
           <Route path="/olive_login" element={<OliveLogin />} />
           <Route path="/olive_login_kid" element={<OliveLoginKid />} />
+          <Route path="/olive_login_complete" element={<OliveLoginComplete />} />
+          <Route path="/olive_login_cart" element={<OliveLoginCart />} />
           <Route path="/start" element={<Start />} />
           <Route path="/main" element={<Index />} />
           <Route path="/kid_info" element={<KidInfo />} />

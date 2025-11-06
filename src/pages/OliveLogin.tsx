@@ -2,20 +2,22 @@ import { FC, useState, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 
-// Local image assets
+// Page-specific assets
 import kidLogo from '../assets/olive-login/kid-logo.png';
 import lineIcon from '../assets/olive-login/line-icon.png';
 import googleIcon from '../assets/olive-login/google-icon.png';
 import appleIcon from '../assets/olive-login/apple-icon.png';
-import navHome from '../assets/olive-login/nav-home.png';
-import navMenu from '../assets/olive-login/nav-menu.png';
-import navEdit from '../assets/olive-login/nav-edit.png';
-import navFavorites from '../assets/olive-login/nav-favorites.png';
-import navProfile from '../assets/olive-login/nav-profile.png';
-import headerBack from '../assets/olive-login/header-back.png';
-import headerSearch from '../assets/olive-login/header-search.png';
-import headerCart from '../assets/olive-login/header-cart.png';
-import oliveYoungLogo from '../assets/common/olive-young-logo.png';
+
+// Common assets (Header & Navigation)
+import navHome from '../assets/olive-common/nav-home.png';
+import navMenu from '../assets/olive-common/nav-menu.png';
+import navEdit from '../assets/olive-common/nav-edit.png';
+import navFavorites from '../assets/olive-common/nav-favorites.png';
+import navProfile from '../assets/olive-common/nav-profile.png';
+import headerBack from '../assets/olive-common/header-back.png';
+import headerSearch from '../assets/olive-common/header-search.png';
+import headerCart from '../assets/olive-common/header-cart.png';
+import oliveYoungLogo from '../assets/olive-common/olive-young-logo.png';
 
 const OliveLogin: FC = () => {
   const navigate = useNavigate();

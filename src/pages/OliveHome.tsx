@@ -1,16 +1,16 @@
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Local assets - Header & Navigation
-import navHome from '../assets/olive-login/nav-home.png';
-import navMenu from '../assets/olive-login/nav-menu.png';
-import navEdit from '../assets/olive-login/nav-edit.png';
-import navFavorites from '../assets/olive-login/nav-favorites.png';
-import navProfile from '../assets/olive-login/nav-profile.png';
-import headerBack from '../assets/olive-login/header-back.png';
-import headerSearch from '../assets/olive-login/header-search.png';
-import headerCart from '../assets/olive-login/header-cart.png';
-import oliveYoungLogo from '../assets/common/olive-young-logo.png';
+// Common assets (Header & Navigation)
+import navHome from '../assets/olive-common/nav-home.png';
+import navMenu from '../assets/olive-common/nav-menu.png';
+import navEdit from '../assets/olive-common/nav-edit.png';
+import navFavorites from '../assets/olive-common/nav-favorites.png';
+import navProfile from '../assets/olive-common/nav-profile.png';
+import headerBack from '../assets/olive-common/header-back.png';
+import headerSearch from '../assets/olive-common/header-search.png';
+import headerCart from '../assets/olive-common/header-cart.png';
+import oliveYoungLogo from '../assets/olive-common/olive-young-logo.png';
 
 // Local assets - Content Images
 import heroBanner from '../assets/olive-home/hero-banner.jpg';

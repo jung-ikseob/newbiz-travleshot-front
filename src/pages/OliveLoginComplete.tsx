@@ -1,33 +1,40 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Page-specific assets
-import qrCode from '../assets/olive-login-kid/qr-code.png';
+import bgMainbnr from '../assets/olive-login-complete/bg-mainbnr.png';
+import oyMembersLogo from '../assets/olive-login-complete/oy-members-logo.png';
 
-// Common assets (Header & Navigation)
 import navHome from '../assets/olive-common/nav-home.png';
 import navMenu from '../assets/olive-common/nav-menu.png';
 import navEdit from '../assets/olive-common/nav-edit.png';
 import navFavorites from '../assets/olive-common/nav-favorites.png';
 import navProfile from '../assets/olive-common/nav-profile.png';
 import oliveYoungLogo from '../assets/olive-common/olive-young-logo.png';
-import headerBack from '../assets/olive-common/header-back.png';
 import headerSearch from '../assets/olive-common/header-search.png';
 import headerCart from '../assets/olive-common/header-cart.png';
 
-const OliveLoginKid: FC = () => {
+const OliveLoginComplete: FC = () => {
   const navigate = useNavigate();
 
-  const handleNext = () => {
-    console.log('Next button clicked');
-    navigate('/olive_login_complete');
+  const handleShopping = () => {
+    console.log('Now shopping button clicked');
   };
 
   return (
     <div className="w-full h-screen overflow-hidden flex items-center justify-center bg-white">
-      <div className="w-full h-full max-w-[375px] flex flex-col bg-white">
+      <div className="w-full h-full max-w-[375px] flex flex-col bg-white relative">
+        {/* Decorative dots */}
+        <div className="absolute w-2 h-2 rounded-full bg-[#EE84A9] left-[29px] top-[183px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#C5AB4F] left-[42px] top-[390px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#EB6F9B] left-[137px] top-[599px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#4A4A4A] left-[202px] top-[430px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#18BD5A] left-[312px] top-[471px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#CEB86C] left-[345px] top-[286px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#D2D632] left-[141px] top-[263px] z-0" />
+        <div className="absolute w-2 h-2 rounded-full bg-[#18BD5A] left-[324px] top-[139px] z-0" />
+
         {/* Header */}
-        <div className="pt-[38px] pb-0 h-[104px] z-10">
+        <div className="pt-[38px] pb-0 h-[104px] z-10 relative">
           <div className="relative w-full h-[66px] px-4">
             {/* Logo in center */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -38,13 +45,16 @@ const OliveLoginKid: FC = () => {
               />
             </div>
 
-            {/* Back button */}
+            {/* Menu button */}
             <button
-              onClick={() => navigate(-1)}
               className="absolute left-4 top-[21px] w-6 h-6 flex items-center justify-center"
-              aria-label="Go back"
+              aria-label="Menu"
             >
-              <img src={headerBack} alt="Back" className="w-6 h-6" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.56055 5.83789L19.3711 5.83789" stroke="#231815" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M3.56055 12.3232L19.3711 12.3232" stroke="#231815" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M3.56055 18.915L19.3711 18.915" stroke="#231815" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </button>
 
             {/* Right icons */}
@@ -60,66 +70,63 @@ const OliveLoginKid: FC = () => {
         </div>
 
         {/* Title */}
-        <div className="text-center px-4">
-          <p
-            className="text-[#231815] text-base font-bold leading-[1.5] mb-0"
-            style={{ fontFamily: 'Pretendard, sans-serif' }}
-          >
-            OLIVE YOUNG
-          </p>
+        <div className="text-center px-4 pt-[50px] relative z-10">
           <p
             className="text-[#231815] text-base font-bold leading-[1.5]"
             style={{ fontFamily: 'Pretendard, sans-serif' }}
           >
+            OLIVE YOUNG
+            <br />
             へようこそ
           </p>
         </div>
 
         {/* Content Wrapper - Scrollable */}
-        <div className="flex-1 flex flex-col items-center justify-start overflow-y-auto px-4 py-8">
-          {/* QR Code Container */}
-          <div className="w-full max-w-[343px] bg-[#eff0f1] rounded-[10px] pt-10 pb-4 flex flex-col gap-10 items-center">
-            {/* QR Code */}
-            <div className="bg-white p-3 rounded-[10px] w-[223px] flex items-center justify-center">
-              <div className="w-[200px] h-[200px] flex items-center justify-center">
-                <img
-                  src={qrCode}
-                  alt="QR Code"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
+        <div className="flex-1 flex flex-col items-center justify-start overflow-y-auto px-4 py-8 relative z-10">
+          {/* Background image */}
+          <div className="w-[177px] h-[151px] mb-10">
+            <img
+              src={bgMainbnr}
+              alt="Background decoration"
+              className="w-full h-full object-contain"
+            />
+          </div>
 
-            {/* Divider and Text */}
-            <div className="flex flex-col gap-4 items-center w-full px-4">
-              <div className="w-full h-px bg-[#c9cdd2]" />
-              <p
-                className="text-[#231815] text-base text-center w-full leading-[1.5]"
-                style={{ fontFamily: 'Pretendard, sans-serif', fontWeight: 500 }}
-              >
-                K-IDを利用して簡単会員登録
-              </p>
-            </div>
+          {/* OY MEMBERS section */}
+          <div className="w-full max-w-[236px] flex flex-col items-center gap-[10px]">
+            <img
+              src={oyMembersLogo}
+              alt="OY MEMBERS"
+              className="w-[150px] h-[30.928px] object-contain"
+            />
+            <p
+              className="text-[#757D86] text-center text-sm leading-[1.5]"
+              style={{ fontFamily: 'Pretendard, sans-serif' }}
+            >
+              あなたはこれからOY MEMBERSです！
+              <br />
+              ご利用いただいてとても嬉しいです！
+            </p>
           </div>
         </div>
 
-        {/* Next Button */}
-        <div className="w-full flex justify-center px-4 py-4">
+        {/* Shopping Button */}
+        <div className="w-full flex justify-center px-4 py-4 relative z-10">
           <button
-            onClick={handleNext}
+            onClick={handleShopping}
             className="w-full max-w-[343px] bg-[#231815] rounded px-4 py-3 flex items-center justify-center hover:bg-[#3a3835] transition-colors"
           >
             <span
               className="text-white text-base font-bold leading-[1.5]"
               style={{ fontFamily: 'Pretendard, sans-serif' }}
             >
-              次へ
+              今ショッピング
             </span>
           </button>
         </div>
 
         {/* Bottom Navigation */}
-        <div className="w-full flex flex-col bg-white border-t border-[#f0f1f4]">
+        <div className="w-full flex flex-col bg-white border-t border-[#f0f1f4] relative z-10">
           <div className="flex justify-between items-center px-6 pt-1.5 pb-5">
             <button className="w-6 h-6 flex items-center justify-center" aria-label="Home">
               <img src={navHome} alt="Home" className="w-6 h-6" />
@@ -144,4 +151,4 @@ const OliveLoginKid: FC = () => {
   );
 };
 
-export default OliveLoginKid;
+export default OliveLoginComplete;
