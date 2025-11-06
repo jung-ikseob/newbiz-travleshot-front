@@ -17,7 +17,7 @@ const OliveLoginCart: FC = () => {
   };
 
   const handlePayment = () => {
-    console.log('Payment button clicked');
+    navigate('/olive_pay_complete');
   };
 
   const handleApplyPromo = () => {

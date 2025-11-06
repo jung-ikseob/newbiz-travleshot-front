@@ -188,7 +188,7 @@ const OliveLogin: FC = () => {
         <div className="flex flex-col gap-2.5 w-full pb-32">
           {/* K-ID Button */}
           <button
-            onClick={() => handleSocialLogin('K-ID')}
+            onClick={() => navigate('/olive_login_kid')}
             className="w-full bg-white border border-[#c9cdd2] rounded px-4 py-2.5 flex gap-2.5 items-center justify-center hover:bg-gray-50 transition-colors"
           >
             <img
