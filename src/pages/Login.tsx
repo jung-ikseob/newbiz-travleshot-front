@@ -35,7 +35,8 @@ const Login: FC = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen overflow-hidden relative bg-white">
+      <div className="relative w-full min-h-screen max-w-[375px] mx-auto bg-white">
       <img 
         src="https://api.builder.io/api/v1/image/assets/TEMP/25805b85ee9b7ab1a9bb9121e0ef8891b372b99b?width=750"
         alt=""
@@ -200,6 +201,7 @@ const Login: FC = () => {
       </div>
 
       {/* using global toast via use-toast; local visual toast removed */}
+      </div>
     </div>
   );
 };

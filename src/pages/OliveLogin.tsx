@@ -39,7 +39,8 @@ const OliveLogin: FC = () => {
   };
 
   return (
-    <div className="relative w-full h-screen bg-white overflow-hidden" style={{ maxWidth: '375px', margin: '0 auto' }}>
+    <div className="w-full h-screen overflow-hidden relative bg-white">
+      <div className="relative w-full h-full max-w-[375px] mx-auto overflow-hidden bg-white">
       {/* Header */}
       <div className="absolute top-0 left-0 w-full pt-[38px] pb-0 h-[104px] z-10">
         <div className="relative w-full h-[66px] px-4">
@@ -297,6 +298,7 @@ const OliveLogin: FC = () => {
           </button>
         </div>
         <div className="bg-white h-[21px] w-full" />
+      </div>
       </div>
     </div>
   );

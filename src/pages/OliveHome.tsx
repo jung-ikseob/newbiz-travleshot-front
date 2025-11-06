@@ -29,11 +29,12 @@ const OliveHome: FC = () => {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="bg-white w-full min-h-screen relative cursor-pointer"
-      style={{ fontFamily: "Pretendard, sans-serif" }}
-    >
+    <div className="w-full min-h-screen overflow-hidden relative bg-white">
+      <div
+        onClick={handleClick}
+        className="relative w-full min-h-screen max-w-[375px] mx-auto bg-white cursor-pointer"
+        style={{ fontFamily: "Pretendard, sans-serif" }}
+      >
       {/* Header */}
       <div className="absolute h-[66px] left-0 top-[38px] w-full overflow-hidden">
         <button onClick={() => navigate(-1)} className="absolute left-[16px] top-[20.9px] w-6 h-6" aria-label="Back">
@@ -176,6 +177,7 @@ const OliveHome: FC = () => {
           </button>
         </div>
         <div className="bg-white h-[21px] w-full" />
+      </div>
       </div>
     </div>
   );

@@ -51,8 +51,9 @@ const Join: FC = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-white">
-      <div className="flex flex-col h-screen">
+    <div className="w-full h-screen overflow-hidden relative bg-white">
+      <div className="relative w-full h-full max-w-[375px] mx-auto overflow-hidden bg-white">
+        <div className="flex flex-col h-screen">
         <button
           onClick={() => navigate(-1)}
           className="absolute top-16 left-3.5 z-10 hover:opacity-70 transition-opacity"
@@ -257,6 +258,7 @@ const Join: FC = () => {
             </button>
           </div>
           <div className="h-[21px]"></div>
+        </div>
         </div>
       </div>
 

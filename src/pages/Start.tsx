@@ -15,9 +15,8 @@ const Start: FC = () => {
   return (
     <div className="start w-full h-screen overflow-hidden relative bg-white">
       <div
-        className="relative h-full w-full mx-auto overflow-hidden"
+        className="relative h-full w-full max-w-[375px] mx-auto overflow-hidden"
         style={{
-          maxWidth: '375px',
           background: 'linear-gradient(180deg, #001c4b 0%, #003284 58.766%, #2063d2 100%)'
         }}
       >

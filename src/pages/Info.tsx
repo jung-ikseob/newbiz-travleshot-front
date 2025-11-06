@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // Local image assets
@@ -7,26 +7,6 @@ import infoGraphic from '../assets/info/info.svg';
 
 const Info: FC = () => {
   const navigate = useNavigate();
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const updateScale = () => {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      if (viewportWidth <= 375) {
-        setScale(1);
-      } else {
-        const scaleByWidth = viewportWidth / 375;
-        const scaleByHeight = viewportHeight / 812;
-        setScale(Math.min(scaleByWidth, scaleByHeight));
-      }
-    };
-
-    updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
-  }, []);
 
   const handleNext = () => {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
@@ -40,13 +20,9 @@ const Info: FC = () => {
   };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center overflow-hidden bg-white">
+    <div className="w-full h-screen overflow-hidden relative bg-white">
       <div
-        className="relative w-[375px] h-[812px] bg-white overflow-hidden"
-        style={{
-          transform: `scale(${scale})`,
-          transformOrigin: 'center center'
-        }}
+        className="relative h-full w-full max-w-[375px] mx-auto overflow-hidden bg-white"
       >
         {/* Back button */}
         <button
