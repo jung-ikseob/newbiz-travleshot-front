@@ -62,7 +62,11 @@ const OliveLoginComplete: FC = () => {
               <button className="w-6 h-6 flex items-center justify-center" aria-label="Search">
                 <img src={headerSearch} alt="Search" className="w-6 h-6" />
               </button>
-              <button className="w-6 h-6 flex items-center justify-center" aria-label="Shopping cart">
+              <button
+                onClick={() => navigate('/olive_login_cart')}
+                className="w-6 h-6 flex items-center justify-center"
+                aria-label="Shopping cart"
+              >
                 <img src={headerCart} alt="Cart" className="w-6 h-6" />
               </button>
             </div>
