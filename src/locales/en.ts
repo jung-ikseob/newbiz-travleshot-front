@@ -148,7 +148,7 @@ export const en: TranslationKeys = {
   // My page
   my: {
     title: 'My',
-    email: '0|Mail',
+    email: 'EMail',
     points: 'Points',
     coupons: 'Coupons',
     receipt: 'E-Receipt',

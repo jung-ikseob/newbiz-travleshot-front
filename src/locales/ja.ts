@@ -148,7 +148,7 @@ export const ja: TranslationKeys = {
   // My page
   my: {
     title: 'My',
-    email: '0|メール',
+    email: 'Eメール',
     points: 'ポイント',
     coupons: 'クーポン',
     receipt: '電子レシート',
