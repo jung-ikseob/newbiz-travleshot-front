@@ -5,6 +5,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 // Local image assets
 import ocr1 from '../assets/ocr/ocr_1.png';
 import ocr2 from '../assets/ocr/ocr_2.svg';
+import ocrCompleteImage from '../assets/builder-images/ocr-complete-image.png';
 
 const OcrComplete: FC = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const OcrComplete: FC = () => {
             {/* Passport example image */}
             <div className="absolute inset-0 rounded-[20px] border border-black bg-white overflow-hidden">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/44237fa184ba9b72b7064f5d92f567c8e01e2adb?width=620"
+                src={ocrCompleteImage}
                 alt="Passport example"
                 className="w-full h-full object-cover p-3"
               />

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import card3GeometricBg from '../../assets/builder-images/card3-geometric.png';
 
 const Card3Geometric: FC = () => (
   <div 
@@ -8,8 +9,8 @@ const Card3Geometric: FC = () => (
       boxShadow: '0 0 34.667px 0 rgba(31, 33, 34, 0.20)'
     }}
   >
-    <img 
-      src="https://api.builder.io/api/v1/image/assets/TEMP/7c0f8798cf5a49bd67489969241e5d3e2041fd6b"
+    <img
+      src={card3GeometricBg}
       alt=""
       className="absolute -left-[80px] -top-[1px] w-[421px] h-[421px]"
       style={{ aspectRatio: '420.7/420.7' }}

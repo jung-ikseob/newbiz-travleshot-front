@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import card1JapaneseBg from '../../assets/builder-images/card1-japanese.png';
 
 const Card1Japanese: FC = () => (
   <div 
@@ -51,8 +52,8 @@ const Card1Japanese: FC = () => (
         </div>
       </div>
 
-      <img 
-        src="https://api.builder.io/api/v1/image/assets/TEMP/cbb99835b688422cb68886cb23f0fea20e6489dc" 
+      <img
+        src={card1JapaneseBg}
         alt=""
         className="absolute -left-[95px] -top-[38px] w-[482px] h-[450px] rotate-90 opacity-20 mix-blend-soft-light"
       />

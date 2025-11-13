@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import card2BlueBg from '../../assets/builder-images/card2-blue.png';
 
 const Card2Blue: FC = () => (
   <div 
@@ -14,8 +15,8 @@ const Card2Blue: FC = () => (
         background: 'linear-gradient(180deg, #001C4B 0%, #003284 58.77%, #2063D2 100%)'
       }}
     >
-      <img 
-        src="https://api.builder.io/api/v1/image/assets/TEMP/267dea9f23dd1b817ed183c2e7654afe97c4552f"
+      <img
+        src={card2BlueBg}
         alt=""
         className="absolute opacity-80"
         style={{

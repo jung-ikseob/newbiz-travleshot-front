@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { userSchema } from '@/lib/validation';
 import { toast } from '@/hooks/use-toast';
 import { useTranslation } from '@/hooks/useTranslation';
+import loginBackground from '../assets/builder-images/login-background.png';
 
 const Login: FC = () => {
   const navigate = useNavigate();
@@ -39,8 +40,8 @@ const Login: FC = () => {
   return (
     <div className="w-full min-h-screen overflow-hidden relative bg-white">
       <div className="relative w-full min-h-screen max-w-[375px] mx-auto bg-white">
-      <img 
-        src="https://api.builder.io/api/v1/image/assets/TEMP/25805b85ee9b7ab1a9bb9121e0ef8891b372b99b?width=750"
+      <img
+        src={loginBackground}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />

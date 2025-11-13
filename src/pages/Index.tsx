@@ -4,6 +4,17 @@ import { toast } from "@/hooks/use-toast";
 import { useTranslation } from "@/hooks/useTranslation";
 import mainCloud from '../assets/main/main_cloud.svg';
 
+import indexImage1 from '../assets/builder-images/index-image-1.png';
+import serviceIcon1 from '../assets/builder-images/service-icon-1.png';
+import serviceIcon2 from '../assets/builder-images/service-icon-2.png';
+import serviceIcon3 from '../assets/builder-images/service-icon-3.png';
+import serviceIcon4 from '../assets/builder-images/service-icon-4.png';
+import serviceIcon5 from '../assets/builder-images/service-icon-5.png';
+import serviceIcon6 from '../assets/builder-images/service-icon-6.png';
+import serviceIcon7 from '../assets/builder-images/service-icon-7.png';
+import serviceIcon8 from '../assets/builder-images/service-icon-8.png';
+import indexBottomImage from '../assets/builder-images/index-bottom-image.png';
+
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAgreed, setIsAgreed] = useState(false);
@@ -16,7 +27,7 @@ const Index = () => {
     if (!isAgreed) {
       toast({
         title: t.main.agreeFirst,
-        duration: 3000
+        duration: 1000
       });
       return;
     }
@@ -136,7 +147,7 @@ const Index = () => {
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-1">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/707306411bfae3af68177591087163c179823121?width=32"
+                  src={indexImage1}
                   alt="Location"
                   className="w-4 h-4"
                 />
@@ -160,22 +171,22 @@ const Index = () => {
             <div className="space-y-3.5">
               <div className="grid grid-cols-4 gap-6">
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/3033b9ee04f9e846ec3648efbc95692f245e2ffb?width=70"
+                  icon={serviceIcon1}
                   label={t.main.map}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/545235c7614023140ed9f038508e91247b35bc8a?width=72"
+                  icon={serviceIcon2}
                   label={t.main.shopping}
                   onClick={() => setIsModalOpen(true)}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/1c3957d753e57d32306540d4137da96165b018e2?width=70"
+                  icon={serviceIcon3}
                   label={t.main.restaurant}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/df1ff687f79c50b5c5227c9e699266ddc506979d?width=70"
+                  icon={serviceIcon4}
                   label={t.main.activity}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
@@ -183,22 +194,22 @@ const Index = () => {
 
               <div className="grid grid-cols-4 gap-6">
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/360848b2f13340fd3b38c505f813619e2bffa10e?width=70"
+                  icon={serviceIcon5}
                   label={t.main.mobility}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/f72b0b9320b9e758c2ddd9376210a8c2337624e2?width=70"
+                  icon={serviceIcon6}
                   label={t.main.prepaidCard}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/37856e1ed01b48885a0ffff096c617115175fddc?width=70"
+                  icon={serviceIcon7}
                   label={t.main.card}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
                 <ServiceIcon
-                  icon="https://api.builder.io/api/v1/image/assets/TEMP/6f8e8f5110d5e942b2b8cb3caa61cc4ccaf5303f?width=70"
+                  icon={serviceIcon8}
                   label={t.main.translation}
                   onClick={() => toast({ title: t.main.preparing, duration: 3000 })}
                 />
@@ -257,7 +268,7 @@ const Index = () => {
                 <div className="absolute left-0 top-[35px] w-full h-[272px] bg-white rounded-t-[10px]" />
 
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/f26121619c613b6b0d0c16a33f0ed0a2897b7a49?width=144"
+                  src={indexBottomImage}
                   alt="올리브영"
                   className="absolute left-5 top-0 w-[72px] h-[72px] rounded-full object-cover"
                 />
